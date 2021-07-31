@@ -1,9 +1,11 @@
 
 import { isAsteroid } from "../hof/conditions.js"
-import { Settings } from "../settings.js"
 import GenericFactory from "./genericObject.js"
 import Position from "./position/Position.js"
 import Vector from "./vector/Vector.js"
+
+const PROJECTILE_SPEED = 4
+const PROJECTILE_TTL = 200
 
 type projectileSettings = {
   rotation: Degrees,
@@ -14,10 +16,10 @@ type projectileSettings = {
 }
 
 export const Projectile = (settings: projectileSettings): Projectile => {
-  const velocity = Vector.fromDegreesAndMagnitude(settings.rotation, Settings.PROJECTILE_SPEED)
+  const velocity = Vector.fromDegreesAndMagnitude(settings.rotation, PROJECTILE_SPEED)
   return {
     ...GenericFactory(settings.location, Vector.add(velocity, settings.inheritedVelocity), 1, ObjectType.Projectile),
-    ttl: Settings.PROJECTILE_TTL,
+    ttl: PROJECTILE_TTL,
     rotation: settings.rotation,
     hasCollidedWith: [],
     isCollidableWith: settings.isCollidableWith,

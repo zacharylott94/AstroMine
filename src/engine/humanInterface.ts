@@ -7,9 +7,10 @@ import motor from "../hof/motor.js"
 import { isPlayer } from "../hof/conditions.js"
 
 const applyAcceleration = (player: Player) => ({ ...player, acceleration: .02 })
+const playerRotationSpeed = 4
 
-export function setupInterface(gameState, rotationSpeed) {
-  const [clockwise, counterClockwise] = setupRotationFunctions(rotationSpeed)
+export function setupInterface(gameState) {
+  const [clockwise, counterClockwise] = setupRotationFunctions(playerRotationSpeed)
   const humanInterface: HumanInterface = {
     fire: motor(gameState.objectList, fireProjectileWhenReady),
     rotateClockwise: motor(gameState.objectList, clockwise),

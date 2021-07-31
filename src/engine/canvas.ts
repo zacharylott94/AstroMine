@@ -1,8 +1,8 @@
-import { Settings } from "../settings.js"
+import { GameDimensions } from "../GameDimensions.js"
 
-const element:any = document.getElementById("canvas")
-element.width = Settings.GAME_WIDTH
-element.height = Settings.GAME_HEIGHT
+const element: any = document.getElementById("canvas")
+element.width = GameDimensions[0]
+element.height = GameDimensions[1]
 export let context = element.getContext("2d")
 context.translate(0.5, 0.5)            //an attempt to remove anti-aliasing
 context.imageSmoothingEnabled = false  //an attempt to remove anti-aliasing

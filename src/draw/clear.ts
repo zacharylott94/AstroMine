@@ -1,6 +1,6 @@
 import { context } from "../engine/canvas.js"
-import { Settings } from "../settings.js"
+import { GameDimensions } from "../GameDimensions.js"
 
 export const clear = () => {
-  context.fillRect(-10, -10, Settings.GAME_WIDTH + 15, Settings.GAME_HEIGHT + 15)
+  context.fillRect(-10, -10, GameDimensions[0] + 15, GameDimensions[1] + 15)
 }

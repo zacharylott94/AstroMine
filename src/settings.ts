@@ -1,9 +1,0 @@
-export const Settings = {
-  GAME_WIDTH: 500,
-  GAME_HEIGHT: 500,
-  PLAYER_RADIUS: 6,
-  PROJECTILE_TTL: 200,
-  PROJECTILE_SPEED: 4,
-  ROTATION_SPEED: 4,
-
-}

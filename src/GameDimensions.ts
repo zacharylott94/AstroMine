@@ -1,0 +1,1 @@
+export const GameDimensions: TVector = [500, 500]

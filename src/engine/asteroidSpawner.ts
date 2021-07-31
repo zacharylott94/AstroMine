@@ -1,7 +1,7 @@
 import { create as Asteroid } from "../dataStructures/Asteroid.js"
 import Position from "../dataStructures/position/Position.js"
 import Vector from "../dataStructures/vector/Vector.js"
-import { Settings } from "../settings.js"
+import { GameDimensions } from "../GameDimensions.js"
 
 const largeAsteroid = Asteroid(2)
 const difficultyRatio = 1 / 18
@@ -14,7 +14,7 @@ function generateSpawnLocation(objectList: GameObject[]): TVector {
   if (player === undefined) return Vector.ZERO
   //Get random positions until one of them is outside a radius around the player
   while (true) {
-    const newPosition = Vector.fromComponents(Math.random() * Settings.GAME_WIDTH, Math.random() * Settings.GAME_WIDTH)
+    const newPosition = Vector.fromComponents(Math.random() * GameDimensions[0], Math.random() * GameDimensions[0])
     if (Vector.distanceSquared(newPosition, Position.closestTo(player.position, newPosition)) > playerSafetyRadius * playerSafetyRadius) {
       return newPosition
     }

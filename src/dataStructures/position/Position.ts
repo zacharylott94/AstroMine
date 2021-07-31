@@ -5,7 +5,7 @@ import specificPositionVector from "./specificPositionVector.js"
 import addVector from "./addVector.js"
 import fromComponents from "./fromComponents.js"
 import { partial } from "../../hof/partial.js"
-import { Settings } from "../../settings.js"
+import { GameDimensions } from "../../GameDimensions.js"
 
 
 enum EPosition {
@@ -21,15 +21,15 @@ enum EPosition {
 }
 
 const offsets: TPosition = [
-  Vector.fromComponents(-Settings.GAME_WIDTH, -Settings.GAME_HEIGHT),
-  Vector.fromComponents(0, -Settings.GAME_HEIGHT),
-  Vector.fromComponents(Settings.GAME_WIDTH, -Settings.GAME_HEIGHT),
-  Vector.fromComponents(-Settings.GAME_WIDTH, 0),
+  Vector.fromComponents(-GameDimensions[0], -GameDimensions[1]),
+  Vector.fromComponents(0, -GameDimensions[1]),
+  Vector.fromComponents(GameDimensions[0], -GameDimensions[1]),
+  Vector.fromComponents(-GameDimensions[0], 0),
   Vector.fromComponents(0, 0),
-  Vector.fromComponents(Settings.GAME_WIDTH, 0),
-  Vector.fromComponents(-Settings.GAME_WIDTH, Settings.GAME_HEIGHT),
-  Vector.fromComponents(0, Settings.GAME_HEIGHT),
-  Vector.fromComponents(Settings.GAME_WIDTH, Settings.GAME_HEIGHT),
+  Vector.fromComponents(GameDimensions[0], 0),
+  Vector.fromComponents(-GameDimensions[0], GameDimensions[1]),
+  Vector.fromComponents(0, GameDimensions[1]),
+  Vector.fromComponents(GameDimensions[0], GameDimensions[1]),
 
 ]
 export default {
@@ -38,5 +38,5 @@ export default {
   addVector,
   real: specificPositionVector(EPosition.real),
   closestTo,
-  constrain: constrain(offsets, Settings, EPosition.real),
+  constrain: constrain(offsets, EPosition.real),
 }

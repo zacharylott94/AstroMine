@@ -3,7 +3,7 @@ import { initGameState } from "./engine/global.js"
 import { clear } from "./draw/clear.js"
 import { setupInterface } from "./engine/humanInterface.js"
 import Controller from "./engine/keyboardController.js"
-import { Settings } from "./settings.js"
+import { GameDimensions } from "./GameDimensions.js"
 import updateScore from "./behaviors/gameState Updaters/updateScore.js"
 import particleListUpdaterSetup from "./behaviors/gameState Updaters/updateParticleList.js"
 import { updateObjectList } from "./behaviors/gameState Updaters/updateObjectList.js"
@@ -12,8 +12,8 @@ import { updateOreSetup } from "./behaviors/gameState Updaters/updateOre.js"
 
 const GameState = initGameState()
 
-const gameRender = gameRenderSetup(GameState, Settings.GAME_WIDTH, Settings.GAME_HEIGHT)
-const humanInterface = setupInterface(GameState, Settings.ROTATION_SPEED)
+const gameRender = gameRenderSetup(GameState, GameDimensions[0], GameDimensions[1])
+const humanInterface = setupInterface(GameState)
 const updateParticleList = particleListUpdaterSetup(GameState.objectList, GameState.timer)
 const updateOre = updateOreSetup(GameState.objectList)
 humanInterface.reset()

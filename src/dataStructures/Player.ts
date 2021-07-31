@@ -1,17 +1,18 @@
 import { isAsteroid, isOre, isOwner } from "../hof/conditions.js"
 import or from "../hof/or.js"
-import { Settings } from "../settings.js"
+import { GameDimensions } from "../GameDimensions.js"
 import GenericFactory from "./genericObject.js"
+import Vector from "./vector/Vector.js"
 
+const PLAYER_RADIUS = 6
 const isCollidableWith = [
   isOwner(ObjectType.UFO),
   isAsteroid,
   isOre,
 ].reduce(or)
-
-export default (): Player => {
+const player = (): Player => {
   return {
-    ...GenericFactory([Settings.GAME_WIDTH / 2, Settings.GAME_HEIGHT / 2], [0, 0], Settings.PLAYER_RADIUS, ObjectType.Player),
+    ...GenericFactory(Vector.scale(GameDimensions, .5), [0, 0], PLAYER_RADIUS, ObjectType.Player),
     rotation: 0,
     acceleration: 0,
     hasCollidedWith: [],
@@ -19,3 +20,5 @@ export default (): Player => {
     angularVelocity: 0,
   }
 }
+
+export default player
