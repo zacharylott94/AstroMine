@@ -1,6 +1,5 @@
 import { isAsteroid, isOre, isOwner } from "../hof/conditions.js"
 import or from "../hof/or.js"
-import { GameDimensions } from "../GameDimensions.js"
 import GenericFactory from "./genericObject.js"
 import Vector from "./vector/Vector.js"
 
@@ -12,7 +11,7 @@ const isCollidableWith = [
 ].reduce(or)
 const player = (): Player => {
   return {
-    ...GenericFactory(Vector.scale(GameDimensions, .5), [0, 0], PLAYER_RADIUS, ObjectType.Player),
+    ...GenericFactory(Vector.CENTER_SCREEN, [0, 0], PLAYER_RADIUS, ObjectType.Player),
     rotation: 0,
     acceleration: 0,
     hasCollidedWith: [],

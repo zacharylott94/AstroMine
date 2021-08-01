@@ -1,17 +1,17 @@
 import { gameObjectRenderer, particleRenderer } from "../composedRenderingFunctions.js"
 import drawText from "../text.js"
-import { GameDimensions } from "../../GameDimensions.js"
 import fif from "../../hof/fif.js"
 import text from "../text.js"
+import Vector from "../../dataStructures/vector/Vector.js"
 
-export const gameRenderSetup = (gameState, width, height) => {
+export const gameRenderSetup = (gameState) => {
   return fif(gameState.paused,
-    () => text(() => [width / 2, height / 2], () => 'PAUSED', { size: '2em' }),
+    () => text(() => Vector.CENTER_SCREEN, () => 'PAUSED', { size: '2em' }),
     () => {
       gameState.objectList(gameObjectRenderer)
       gameState.particleList(particleRenderer(gameState.timer()))
       //Note that this is set to track ore. This is temporary.
-      drawText(() => [GameDimensions[0] / 2, 20], () => `SCORE: ${gameState.ore()}`)
+      drawText(() => [Vector.CENTER_SCREEN[0], 20], () => `SCORE: ${gameState.ore()}`)
     })
 }
 

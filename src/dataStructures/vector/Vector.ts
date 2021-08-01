@@ -34,7 +34,9 @@ export default {
   LEFT: <TVector>[-1, 0],
   RIGHT: <TVector>[1, 0],
   ZERO: <TVector>[0, 0],
-  INF: <TVector>[Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY]
+  INF: <TVector>[Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY],
+  GAME_DIMENSIONS: <TVector>[500, 500],
+  CENTER_SCREEN: <TVector>[250, 250]
 
 }
 

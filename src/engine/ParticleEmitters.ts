@@ -6,7 +6,6 @@ import { randomAngle, randomInteger, randomNumber } from "../libraries/random.js
 import { hasCollided, isAccelerating, isPlayer, isProjectile, isRotatingClockwise, isRotatingCounterclockwise } from "../hof/conditions.js"
 import and from "../hof/and.js"
 import array from "../libraries/array.js"
-import { GameDimensions } from "../GameDimensions.js"
 import mod from "../libraries/mod.js"
 import { wavy } from "./accelerationFunctions.js"
 
@@ -22,7 +21,7 @@ type ParticleGeneratorSettings = {
 }
 
 const concat = array.concat
-const Particle = particleSetup([GameDimensions[0], GameDimensions[1]])
+const Particle = particleSetup(Vector.GAME_DIMENSIONS)
 
 const generateParticleList = (generatorSettings: ParticleGeneratorSettings) => {
   let particles = new Array<Particle>(generatorSettings.number).fill(Particle(0))

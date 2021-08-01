@@ -1,6 +1,7 @@
+import Vector from "../dataStructures/vector/Vector.js"
 import { context } from "../engine/canvas.js"
-import { GameDimensions } from "../GameDimensions.js"
 
 export const clear = () => {
-  context.fillRect(-10, -10, GameDimensions[0] + 15, GameDimensions[1] + 15)
+  const [width, height] = Vector.GAME_DIMENSIONS
+  context.fillRect(-10, -10, width + 15, height + 15)
 }

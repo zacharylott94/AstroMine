@@ -1,4 +1,3 @@
-import { GameDimensions } from "../../GameDimensions"
 import Position from "./Position"
 import Vector from "../vector/Vector"
 describe('Position static class', () => {
@@ -9,8 +8,8 @@ describe('Position static class', () => {
 
   it('can get position closest to vector', () => {
     //Mutates global Settings to test. Fair Warning
-    GameDimensions[0] = 500
-    GameDimensions[1] = 500
+    Vector.GAME_DIMENSIONS[0] = 500
+    Vector.GAME_DIMENSIONS[1] = 500
     let position = Position.fromComponents(50, 50)
     let point = Vector.fromComponents(480, 480)
     let expected = Vector.fromComponents(550, 550)
@@ -29,8 +28,8 @@ describe('Position static class', () => {
   })
   it('can constrain positions to the game field', () => {
     //Spooky manipulation of global values
-    GameDimensions[1] = 100
-    GameDimensions[0] = 100
+    Vector.GAME_DIMENSIONS[1] = 100
+    Vector.GAME_DIMENSIONS[0] = 100
     let position = Position.fromComponents(101, 101)
     let expected = Position.fromComponents(1, 1)
     expect(Position.constrain(position)).toStrictEqual(expected)

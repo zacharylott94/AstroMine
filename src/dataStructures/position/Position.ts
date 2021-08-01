@@ -5,7 +5,6 @@ import specificPositionVector from "./specificPositionVector.js"
 import addVector from "./addVector.js"
 import fromComponents from "./fromComponents.js"
 import { partial } from "../../hof/partial.js"
-import { GameDimensions } from "../../GameDimensions.js"
 
 
 enum EPosition {
@@ -21,15 +20,15 @@ enum EPosition {
 }
 
 const offsets: TPosition = [
-  Vector.fromComponents(-GameDimensions[0], -GameDimensions[1]),
-  Vector.fromComponents(0, -GameDimensions[1]),
-  Vector.fromComponents(GameDimensions[0], -GameDimensions[1]),
-  Vector.fromComponents(-GameDimensions[0], 0),
+  Vector.fromComponents(-Vector.GAME_DIMENSIONS[0], -Vector.GAME_DIMENSIONS[1]),
+  Vector.fromComponents(0, -Vector.GAME_DIMENSIONS[1]),
+  Vector.fromComponents(Vector.GAME_DIMENSIONS[0], -Vector.GAME_DIMENSIONS[1]),
+  Vector.fromComponents(-Vector.GAME_DIMENSIONS[0], 0),
   Vector.fromComponents(0, 0),
-  Vector.fromComponents(GameDimensions[0], 0),
-  Vector.fromComponents(-GameDimensions[0], GameDimensions[1]),
-  Vector.fromComponents(0, GameDimensions[1]),
-  Vector.fromComponents(GameDimensions[0], GameDimensions[1]),
+  Vector.fromComponents(Vector.GAME_DIMENSIONS[0], 0),
+  Vector.fromComponents(-Vector.GAME_DIMENSIONS[0], Vector.GAME_DIMENSIONS[1]),
+  Vector.fromComponents(0, Vector.GAME_DIMENSIONS[1]),
+  Vector.fromComponents(Vector.GAME_DIMENSIONS[0], Vector.GAME_DIMENSIONS[1]),
 
 ]
 export default {
