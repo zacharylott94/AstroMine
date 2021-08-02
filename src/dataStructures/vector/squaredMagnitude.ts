@@ -1,0 +1,1 @@
+export default ([x, y]: TVector): number => x * x + y * y

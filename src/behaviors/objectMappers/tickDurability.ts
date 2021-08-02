@@ -1,0 +1,1 @@
+export default obj => ({ ...obj, durability: obj.durability - 1 })
