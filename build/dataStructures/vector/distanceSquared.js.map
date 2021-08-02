@@ -1,0 +1,1 @@
+{"version":3,"file":"distanceSquared.js","sourceRoot":"","sources":["../../../src/dataStructures/vector/distanceSquared.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,eAAe,CAAA;AACpC,OAAO,gBAAgB,MAAM,uBAAuB,CAAA;AAEpD,eAAe,CAAC,OAAgB,EAAE,OAAgB,EAAU,EAAE;IAC5D,OAAO,gBAAgB,CAAC,QAAQ,CAAC,OAAO,EAAE,OAAO,CAAC,CAAC,CAAA;AACrD,CAAC,CAAA"}

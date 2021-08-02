@@ -1,0 +1,1 @@
+{"version":3,"file":"move.js","sourceRoot":"","sources":["../../../src/behaviors/objectMappers/move.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,2CAA2C,CAAA;AAEhE,MAAM,CAAC,OAAO,WAAc,GAAkB;IAC5C,OAAO,EAAE,GAAG,GAAG,EAAE,QAAQ,EAAE,QAAQ,CAAC,SAAS,CAAC,GAAG,CAAC,QAAQ,EAAE,GAAG,CAAC,QAAQ,CAAC,EAAE,CAAA;AAC7E,CAAC"}

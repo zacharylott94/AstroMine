@@ -1,0 +1,1 @@
+{"version":3,"file":"wrapVector.js","sourceRoot":"","sources":["../../../src/dataStructures/vector/wrapVector.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,wBAAwB,CAAA;AAExC,eAAe,CAAC,OAAO,EAAE,MAAM,EAAW,EAAE;IAC1C,OAAO;QACL,GAAG,CAAC,MAAM,CAAC,CAAC,CAAC,EAAE,OAAO,CAAC,CAAC,CAAC,CAAC;QAC1B,GAAG,CAAC,MAAM,CAAC,CAAC,CAAC,EAAE,OAAO,CAAC,CAAC,CAAC,CAAC;KAC3B,CAAA;AACH,CAAC,CAAA"}

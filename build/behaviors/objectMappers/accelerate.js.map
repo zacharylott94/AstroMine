@@ -1,0 +1,1 @@
+{"version":3,"file":"accelerate.js","sourceRoot":"","sources":["../../../src/behaviors/objectMappers/accelerate.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,uCAAuC,CAAA;AAE1D,MAAM,CAAC,OAAO,WAAc,GAA8C;IACxE,OAAO;QACL,GAAG,GAAG;QACN,QAAQ,EAAE,MAAM,CAAC,GAAG,CAAC,GAAG,CAAC,QAAQ,EAAE,MAAM,CAAC,uBAAuB,CAAC,GAAG,CAAC,QAAQ,EAAE,GAAG,CAAC,YAAY,CAAC,CAAC;KACnG,CAAA;AACH,CAAC"}
