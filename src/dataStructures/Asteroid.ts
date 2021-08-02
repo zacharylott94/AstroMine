@@ -1,10 +1,11 @@
-import { isPlayerProjectile } from "../hof/conditions.js"
+import { isPlayerProjectile, isCloneTrigger } from "../hof/conditions.js"
 import { partial } from "../hof/partial.js"
 import { randomDirectionVector } from "../libraries/random.js"
 import GenericFactory from "./genericObject.js"
 import Position from "./position/Position.js"
 import Vector from "./vector/Vector.js"
 import Ore from "./Ore.js"
+import or from "../hof/or.js"
 
 const SIZE_TO_RADIUS =
   [
@@ -17,7 +18,23 @@ const VELOCITY_SCALE = 1.1
 const SPREAD = 30
 const DEADZONE = 5
 
+const SpawnableTemplate = {
+  hasCollidedWith: [],
+  durability: 3,
+  size: 2,
+  isCollidableWith: or(isPlayerProjectile, isCloneTrigger),
+  radius: 40,
+  type: ObjectType.Asteroid,
+  delete: false
+}
 
+export const spawnableAsteroid = (location, velocity): Asteroid => {
+  return {
+    ...SpawnableTemplate,
+    position: [location],
+    velocity,
+  }
+}
 
 export const create = size => (location, velocity, durability = DURABILITY, sizeToRadius = SIZE_TO_RADIUS): Asteroid => {
   return {
@@ -25,7 +42,7 @@ export const create = size => (location, velocity, durability = DURABILITY, size
     hasCollidedWith: [],
     durability,
     size,
-    isCollidableWith: isPlayerProjectile,
+    isCollidableWith: isPlayerProjectile
   }
 }
 

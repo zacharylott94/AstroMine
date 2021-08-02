@@ -1,34 +1,35 @@
-import { create as Asteroid } from "../dataStructures/Asteroid.js"
-import Position from "../dataStructures/position/Position.js"
+import { spawnableAsteroid } from "../dataStructures/Asteroid.js"
 import Vector from "../dataStructures/vector/Vector.js"
+import { randomInteger } from "../libraries/random.js"
 
-const largeAsteroid = Asteroid(2)
 const difficultyRatio = 1 / 18
-const playerSafetyRadius = 200
 const minAsteroidVelocity = .5
 const AsteroidDifficultyVelocityRatio = 1 / 36
 
-function generateSpawnLocation(objectList: GameObject[]): TVector {
-  const player = objectList.filter(object => object.type === ObjectType.Player)[0]
-  if (player === undefined) return Vector.ZERO
-  //Get random positions until one of them is outside a radius around the player
-  while (true) {
-    const newPosition = Vector.fromComponents(Math.random() * Vector.GAME_DIMENSIONS[0], Math.random() * Vector.GAME_DIMENSIONS[1])
-    if (Vector.distanceSquared(newPosition, Position.closestTo(player.position, newPosition)) > playerSafetyRadius * playerSafetyRadius) {
-      return newPosition
-    }
-  }
+
+function generateSpawnLocation(): TVector {
+  const spawnRing = 400
+  return Vector.add(Vector.fromDegreesAndMagnitude(randomInteger(360), spawnRing),
+    Vector.CENTER_SCREEN)
+
 }
 
-function generateRandomVelocity(difficulty: number): TVector {
-  return Vector.fromDegreesAndMagnitude(Math.random() * 360,
-    Math.max(minAsteroidVelocity, Math.random() * difficulty * AsteroidDifficultyVelocityRatio))
+function generateRandomVelocity(difficulty: number, position): TVector {
+  const targetPoint = Vector.add(
+    Vector.fromDegreesAndMagnitude(randomInteger(360), 100),
+    Vector.CENTER_SCREEN)
+  const targetDirection = Vector.normalize(
+    Vector.subtract(targetPoint, position)
+  )
+  return Vector.scale(targetDirection, Math.max(minAsteroidVelocity, Math.random() * difficulty * AsteroidDifficultyVelocityRatio))
 }
 
 const AsteroidSpawnSystem = difficulty => (objectList: GameObject[]): GameObject[] => {
   const asteroids = objectList.filter(obj => obj.type === ObjectType.Asteroid)
-  if (asteroids.length - 1 < (difficulty + 1) * difficultyRatio)
-    return objectList.concat(largeAsteroid(generateSpawnLocation(objectList), generateRandomVelocity(difficulty)))
+  if (asteroids.length - 1 < (difficulty + 1) * difficultyRatio) {
+    const location = generateSpawnLocation()
+    return objectList.concat(spawnableAsteroid(location, generateRandomVelocity(difficulty, location)))
+  }
   return objectList
 }
 

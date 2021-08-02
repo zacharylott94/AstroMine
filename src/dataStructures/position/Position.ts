@@ -8,11 +8,11 @@ import { partial } from "../../hof/partial.js"
 
 
 enum EPosition {
+  real,
   topLeft,
   top,
   topRight,
   left,
-  real,
   right,
   bottomLeft,
   bottom,
@@ -20,11 +20,11 @@ enum EPosition {
 }
 
 const offsets: TPosition = [
+  Vector.fromComponents(0, 0),
   Vector.fromComponents(-Vector.GAME_DIMENSIONS[0], -Vector.GAME_DIMENSIONS[1]),
   Vector.fromComponents(0, -Vector.GAME_DIMENSIONS[1]),
   Vector.fromComponents(Vector.GAME_DIMENSIONS[0], -Vector.GAME_DIMENSIONS[1]),
   Vector.fromComponents(-Vector.GAME_DIMENSIONS[0], 0),
-  Vector.fromComponents(0, 0),
   Vector.fromComponents(Vector.GAME_DIMENSIONS[0], 0),
   Vector.fromComponents(-Vector.GAME_DIMENSIONS[0], Vector.GAME_DIMENSIONS[1]),
   Vector.fromComponents(0, Vector.GAME_DIMENSIONS[1]),

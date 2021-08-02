@@ -7,7 +7,11 @@ export function checkCollision(object: ICollidable & ITypeable, otherObject: ICo
   if (object === otherObject) return object
   // if (object.hasCollidedWith.length > 0) return object
   const realPosition = Position.real(object.position)
-  const closestPosition = Position.closestTo(otherObject.position, realPosition)
+  let closestPosition
+  if (object.position.length === otherObject.position.length)
+    closestPosition = Position.closestTo(otherObject.position, realPosition)
+  else
+    closestPosition = Position.real(otherObject.position)
   const squaredDistanceBetweenObjects = Vector.distanceSquared(realPosition, closestPosition)
   const summedRadiiOfObjects = object.radius + otherObject.radius
   const squaredRadiiOfObjects = summedRadiiOfObjects * summedRadiiOfObjects

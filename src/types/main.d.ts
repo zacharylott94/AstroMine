@@ -22,7 +22,7 @@ type Condition = (...args) => boolean
 type Monoid<T> = (thing: T) => T
 
 type TVector = [number, number]
-type TPosition = [TVector, TVector, TVector, TVector, TVector, TVector, TVector, TVector, TVector,]
+type TPosition = Array<TVector>
 
 type Asteroid = IGeneric & ICollidable & IDurability & { size: number }
 type Player = ICollidable & IGeneric & IAcceleration & IRotation
@@ -30,6 +30,7 @@ type Projectile = IRotatableGeneric & ICollidable & ITimeToLive & { owner: Objec
 type Ore = ICollidable & IGeneric & IRotation
 type Particle = (time: number) => TVector
 type GameObject = Player | Projectile | Asteroid | Ore
+type Trigger = ICollidable & ITypeable
 
 type Degrees = number
 

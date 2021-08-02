@@ -38,4 +38,6 @@ const enum ObjectType {
   Generic,
   UFO,
   Ore,
+  CloneTrigger,
+  DespawnTrigger,
 }
