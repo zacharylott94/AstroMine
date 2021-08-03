@@ -10,12 +10,12 @@ import { rotate } from "../objectMappers/rotate.js"
 import moveAllMoveable from "../listMappers/moveAllMoveable.js"
 import removeDeleted from "../listMappers/removeDeleted.js"
 import tickAllTTL from "../listMappers/tickAllTTL.js"
-import flagForDespawn from "../listMappers/flagForDespawn.js"
 import constrainThingsWIthClones from "../listMappers/constrainThingsWIthClones.js"
 import deleteIfPlayerCollidingWithAsteroid from "../listMappers/deleteIfPlayerCollidingWithAsteroid.js"
 import deleteIfCollided from "../listMappers/deleteIfCollided.js"
 import tickDurabilityIfHitByPlayer from "../listMappers/tickDurabilityIfHitByPlayer.js"
 import grantClones from "../listMappers/grantClones.js"
+import deleteIfOutsideOfPlay from "../listMappers/deleteIfOutsideOfPlay.js"
 
 const shatterIfNoDurability = compose(
   mapper(conditional(isAsteroidWithNoDurability, (obj: Asteroid): any => shatter(obj))),
@@ -40,8 +40,8 @@ export const updateObjectList = [
   deleteIfPlayerCollidingWithAsteroid,
   shatterIfNoDurability,
   mapper(conditional(hasAcceleration, accelerate)),
+  deleteIfOutsideOfPlay,
   resetAcceleration,
-  flagForDespawn,
   grantClones,
 ].reduce(compose)
 

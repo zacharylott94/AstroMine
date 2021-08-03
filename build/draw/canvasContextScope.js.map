@@ -1,1 +1,0 @@
-{"version":3,"file":"canvasContextScope.js","sourceRoot":"","sources":["../../src/draw/canvasContextScope.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,qBAAqB,CAAA;AAC7C,MAAM,UAAU,kBAAkB,CAAC,IAAI;IACrC,OAAO,UAAU,GAAG,IAAI;QACtB,OAAO,CAAC,IAAI,EAAE,CAAA;QACd,IAAI,CAAC,GAAG,IAAI,CAAC,CAAA;QACb,OAAO,CAAC,OAAO,EAAE,CAAA;IACnB,CAAC,CAAA;AACH,CAAC"}

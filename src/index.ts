@@ -8,6 +8,8 @@ import particleListUpdaterSetup from "./behaviors/gameState Updaters/updateParti
 import { updateObjectList } from "./behaviors/gameState Updaters/updateObjectList.js"
 import { gameRenderSetup } from "./draw/setupFunctions.ts/gameRenderSetup.js"
 import { updateOreSetup } from "./behaviors/gameState Updaters/updateOre.js"
+import droneSpawner from "./engine/droneSpawner.js"
+import { isDrone } from "./hof/conditions.js"
 
 const GameState = initGameState()
 
@@ -41,6 +43,11 @@ const physicsLoop = () => {
   if (GameState.timer() % 60 === 0) {
     GameState.objectList(AsteroidSpawnSystem(GameState.score()))
     console.log(`Ore: ${GameState.ore()}`)
+  }
+
+  if (GameState.timer() % 60 * 1 === 0) {
+    GameState.objectList(droneSpawner(GameState.score()))
+    console.log(`Drones: ${GameState.objectList().filter(isDrone).length}`)
   }
 
   GameState.timer(_ => ++_)

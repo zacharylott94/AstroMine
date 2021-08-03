@@ -1,1 +1,0 @@
-{"version":3,"file":"distance.js","sourceRoot":"","sources":["../../../src/dataStructures/vector/distance.ts"],"names":[],"mappings":"AAAA,OAAO,eAAe,MAAM,sBAAsB,CAAA;AAElD,eAAe,CAAC,OAAgB,EAAE,OAAgB,EAAU,EAAE;IAC5D,OAAO,IAAI,CAAC,IAAI,CAAC,eAAe,CAAC,OAAO,EAAE,OAAO,CAAC,CAAC,CAAA;AACrD,CAAC,CAAA"}

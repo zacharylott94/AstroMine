@@ -29,7 +29,9 @@ type Player = ICollidable & IGeneric & IAcceleration & IRotation
 type Projectile = IRotatableGeneric & ICollidable & ITimeToLive & { owner: ObjectType }
 type Ore = ICollidable & IGeneric & IRotation
 type Particle = (time: number) => TVector
-type GameObject = Player | Projectile | Asteroid | Ore
+type Drone = IGeneric & ICollidable
+type Cargo = IGeneric & ICollidable & { count: number }
+type GameObject = Player | Projectile | Asteroid | Ore | Drone | Cargo
 type Trigger = ICollidable & ITypeable
 
 type Degrees = number

@@ -1,3 +1,5 @@
+import Position from "../dataStructures/position/Position.js"
+import Vector from "../dataStructures/vector/Vector.js"
 import and from "./and.js"
 import or from "./or.js"
 
@@ -17,6 +19,10 @@ export const isRotatable = hasProperties("rotation")
 export const hasTTL = hasProperties("ttl")
 export const hasAcceleration = hasProperties("acceleration")
 export const hasClones = and(hasProperties("position"), obj => obj.position.length > 1)
+export const isOutsideofPlay = obj => Vector.magnitude(Vector.subtract(
+  Position.real(obj.position),
+  Vector.CENTER_SCREEN
+)) > 500
 
 
 
@@ -36,7 +42,8 @@ export const isAccelerating = object => object.acceleration > 0
 export const isOre = object => object.type === ObjectType.Ore
 export const isOrePlayerOrProjectile = [isPlayer, isProjectile, isOre].reduce(or)
 export const isCloneTrigger = isObject(ObjectType.CloneTrigger)
-export const isDespawnTrigger = isObject(ObjectType.DespawnTrigger)
+export const isCargo = isObject(ObjectType.Cargo)
+export const isDrone = isObject(ObjectType.Drone)
 
 
 //list property checks

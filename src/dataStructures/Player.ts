@@ -1,11 +1,10 @@
-import { isAsteroid, isOre, isOwner } from "../hof/conditions.js"
+import { isAsteroid, isOre } from "../hof/conditions.js"
 import or from "../hof/or.js"
 import GenericFactory from "./genericObject.js"
 import Vector from "./vector/Vector.js"
 
 const PLAYER_RADIUS = 6
 const isCollidableWith = [
-  isOwner(ObjectType.UFO),
   isAsteroid,
   isOre,
 ].reduce(or)
