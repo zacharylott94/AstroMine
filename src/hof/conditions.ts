@@ -10,7 +10,7 @@ import or from "./or.js"
 export const durabilityLT1 = obj => obj?.durability < 1
 export const hasCollided = obj => obj.hasCollidedWith.length > 0
 export const hasCollidedMultiple = obj => obj.hasCollidedWith.length > 1
-export const hasCollidedWith = objectType => obj => obj.hasCollidedWith.filter(type => type === objectType) > 0
+export const hasCollidedWith = objectType => obj => obj.hasCollidedWith.filter(type => type === objectType).length > 0
 export const hasProperties = (...props: string[]) => obj => props.reduce((l, r) => l && r in obj, true)
 export const isCollidable = hasProperties("hasCollidedWith", "radius")
 export const isMoveable = hasProperties("velocity", "position")

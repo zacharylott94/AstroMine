@@ -30,7 +30,7 @@ type Projectile = IRotatableGeneric & ICollidable & ITimeToLive & { owner: Objec
 type Ore = ICollidable & IGeneric & IRotation
 type Particle = (time: number) => TVector
 type Drone = IGeneric & ICollidable & IRotatableGeneric
-type Cargo = IGeneric & ICollidable & { count: number }
+type Cargo = IGeneric & ICollidable & IRotatableGeneric & { count: number }
 type GameObject = Player | Projectile | Asteroid | Ore | Drone | Cargo
 type Trigger = ICollidable & ITypeable
 
@@ -44,7 +44,8 @@ interface HumanInterface {
   rotateCounterclockwise: Function,
   rotateClockwise: Function,
   pause: Function,
-  reset: Function
+  reset: Function,
+  jettison: Function,
 }
 
 type GameState = {

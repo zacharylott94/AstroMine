@@ -1,12 +1,10 @@
-import and from "../../hof/and.js"
-import { isAsteroid } from "../../hof/conditions.js"
+import compose from "../../hof/compose.js"
+import { addScoreSetup } from "../addScore.js"
 
-const updateScore = objectList => score => score + objectList()
-  .filter([
-    isAsteroid,
-    obj => obj.delete,
-    obj => obj.size === 0,
-  ].reduce(and))
-  .length
+export const updateScoreSetup = objectList => {
+  return [
+    addScoreSetup(objectList)
+  ].reduce(compose)
+}
 
-export default updateScore
+export default updateScoreSetup

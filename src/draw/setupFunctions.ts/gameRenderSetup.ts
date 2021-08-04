@@ -11,7 +11,8 @@ export const gameRenderSetup = (gameState) => {
       gameState.objectList(gameObjectRenderer)
       gameState.particleList(particleRenderer(gameState.timer()))
       //Note that this is set to track ore. This is temporary.
-      drawText(() => [Vector.CENTER_SCREEN[0], 20], () => `SCORE: ${gameState.ore()}`)
+      drawText(() => [Vector.CENTER_SCREEN[0], 20], () => `SCORE: ${gameState.score()}`)
+      drawText(() => [Vector.CENTER_SCREEN[0], 40], () => `CARGO: ${gameState.ore()}`)
     })
 }
 

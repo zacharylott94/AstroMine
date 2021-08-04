@@ -11,11 +11,13 @@ import moveAllMoveable from "../listMappers/moveAllMoveable.js"
 import removeDeleted from "../listMappers/removeDeleted.js"
 import tickAllTTL from "../listMappers/tickAllTTL.js"
 import constrainThingsWIthClones from "../listMappers/constrainThingsWIthClones.js"
-import deleteIfPlayerCollidingWithAsteroid from "../listMappers/deleteIfPlayerCollidingWithAsteroid.js"
-import deleteIfCollided from "../listMappers/deleteIfCollided.js"
+import deleteIfPlayerCollidingWithAsteroid from "../listMappers/deletions/deleteIfPlayerCollidingWithAsteroid.js"
+import deleteIfCollided from "../listMappers/deletions/deleteIfCollided.js"
 import tickDurabilityIfHitByPlayer from "../listMappers/tickDurabilityIfHitByPlayer.js"
 import grantClones from "../listMappers/grantClones.js"
-import deleteIfOutsideOfPlay from "../listMappers/deleteIfOutsideOfPlay.js"
+import deletePickedUpCargo from "../listMappers/deletions/deletePickedUpCargo.js"
+import deletePlayerCollidingWithDrone from "../listMappers/deletions/deletePlayerCollidingWithDrone.js"
+import deleteIfOutsideOfPlay from "../listMappers/deletions/deleteIfOutsideOfPlay.js"
 
 const shatterIfNoDurability = compose(
   mapper(conditional(isAsteroidWithNoDurability, (obj: Asteroid): any => shatter(obj))),
@@ -38,9 +40,11 @@ export const updateObjectList = [
   tickDurabilityIfHitByPlayer,
   deleteIfCollided,
   deleteIfPlayerCollidingWithAsteroid,
+  deletePlayerCollidingWithDrone,
   shatterIfNoDurability,
   mapper(conditional(hasAcceleration, accelerate)),
   deleteIfOutsideOfPlay,
+  deletePickedUpCargo,
   resetAcceleration,
   grantClones,
 ].reduce(compose)

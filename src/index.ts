@@ -3,13 +3,12 @@ import { initGameState } from "./engine/global.js"
 import { clear } from "./draw/clear.js"
 import { setupInterface } from "./engine/humanInterface.js"
 import Controller from "./engine/keyboardController.js"
-import updateScore from "./behaviors/gameState Updaters/updateScore.js"
+import { updateScoreSetup } from "./behaviors/gameState Updaters/updateScore.js"
 import particleListUpdaterSetup from "./behaviors/gameState Updaters/updateParticleList.js"
 import { updateObjectList } from "./behaviors/gameState Updaters/updateObjectList.js"
 import { gameRenderSetup } from "./draw/setupFunctions.ts/gameRenderSetup.js"
 import { updateOreSetup } from "./behaviors/gameState Updaters/updateOre.js"
 import droneSpawner from "./engine/droneSpawner.js"
-import { isDrone } from "./hof/conditions.js"
 
 const GameState = initGameState()
 
@@ -17,6 +16,7 @@ const gameRender = gameRenderSetup(GameState)
 const humanInterface = setupInterface(GameState)
 const updateParticleList = particleListUpdaterSetup(GameState.objectList, GameState.timer)
 const updateOre = updateOreSetup(GameState.objectList)
+const updateScore = updateScoreSetup(GameState.objectList)
 humanInterface.reset()
 
 const graphicsLoop = () => {
@@ -33,10 +33,11 @@ const physicsLoop = () => {
   if (Controller.isButtonHeld("a")) humanInterface.rotateCounterclockwise()
   if (Controller.isButtonHeld("d")) humanInterface.rotateClockwise()
   if (Controller.isButtonPushed("Enter")) humanInterface.fire()
+  if (Controller.isButtonPushed("c")) humanInterface.jettison()
 
   GameState.particleList(updateParticleList)
   GameState.objectList(updateObjectList)
-  GameState.score(updateScore(GameState.objectList))
+  GameState.score(updateScore)
   GameState.ore(updateOre)
 
 
