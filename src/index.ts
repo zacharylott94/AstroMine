@@ -42,12 +42,10 @@ const physicsLoop = () => {
 
   if (GameState.timer() % 60 === 0) {
     GameState.objectList(AsteroidSpawnSystem(GameState.score()))
-    console.log(`Ore: ${GameState.ore()}`)
   }
 
-  if (GameState.timer() % 60 * 1 === 0) {
+  if (GameState.timer() % (60 * 60) === 600) {
     GameState.objectList(droneSpawner(GameState.score()))
-    console.log(`Drones: ${GameState.objectList().filter(isDrone).length}`)
   }
 
   GameState.timer(_ => ++_)
