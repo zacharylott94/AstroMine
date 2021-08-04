@@ -16,3 +16,5 @@ export const randomInteger = (max, min = 0) => Math.floor(randomNumber(max + 1, 
 
 
 export const randomNumberGenerator = (min: number, max: number) => randomNumber(min, max)
+
+export const randomChoice = (...choices) => choices[randomInteger(choices.length - 1)]

@@ -4,7 +4,7 @@ import { randomDirectionVector } from "../libraries/random.js"
 import GenericFactory from "./genericObject.js"
 import Position from "./position/Position.js"
 import Vector from "./vector/Vector.js"
-import Ore from "./Ore.js"
+import { randomRotationOre } from "./Ore.js"
 import or from "../hof/or.js"
 
 const SIZE_TO_RADIUS =
@@ -60,7 +60,7 @@ export const shatter = (asteroid: Asteroid): (Asteroid | Ore)[] => {
     create(asteroid.size - 1),
     Position.real(asteroid.position)
   )
-  if (asteroid.size === 0) return [{ ...asteroid, delete: true }, Ore(Position.real(asteroid.position), asteroid.velocity)]
+  if (asteroid.size === 0) return [{ ...asteroid, delete: true }, randomRotationOre(Position.real(asteroid.position), asteroid.velocity)]
   return shatterVelocities(asteroid)
     .map(vel => factory(vel))
     .concat({ ...asteroid, delete: true })
