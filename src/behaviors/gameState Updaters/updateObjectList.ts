@@ -18,6 +18,7 @@ import grantClones from "../listMappers/grantClones.js"
 import deletePickedUpCargo from "../listMappers/deletions/deletePickedUpCargo.js"
 import deletePlayerCollidingWithDrone from "../listMappers/deletions/deletePlayerCollidingWithDrone.js"
 import deleteIfOutsideOfPlay from "../listMappers/deletions/deleteIfOutsideOfPlay.js"
+import explodeIntoOre from "../listMappers/explodeIntoOre.js"
 
 const shatterIfNoDurability = compose(
   mapper(conditional(isAsteroidWithNoDurability, (obj: Asteroid): any => shatter(obj))),
@@ -45,6 +46,7 @@ export const updateObjectList = [
   mapper(conditional(hasAcceleration, accelerate)),
   deleteIfOutsideOfPlay,
   deletePickedUpCargo,
+  explodeIntoOre,
   resetAcceleration,
   grantClones,
 ].reduce(compose)

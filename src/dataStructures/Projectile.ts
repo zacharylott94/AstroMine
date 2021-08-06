@@ -1,5 +1,6 @@
 
-import { isAsteroid } from "../hof/conditions.js"
+import { isAsteroid, isCargo } from "../hof/conditions.js"
+import or from "../hof/or.js"
 import GenericFactory from "./genericObject.js"
 import Position from "./position/Position.js"
 import Vector from "./vector/Vector.js"
@@ -35,7 +36,7 @@ export const PlayerProjectile = player => {
     location,
     rotation: player.rotation,
     owner: ObjectType.Player,
-    isCollidableWith: isAsteroid,
+    isCollidableWith: or(isAsteroid, isCargo),
     inheritedVelocity: player.velocity
   }
   return Projectile(settings)

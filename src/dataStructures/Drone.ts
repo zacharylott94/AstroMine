@@ -1,4 +1,3 @@
-import { isCargo } from "../hof/conditions.js"
 import { randomChoice, randomInteger } from "../libraries/random.js"
 
 
@@ -6,7 +5,7 @@ const droneTemplate: Drone = {
   position: [],
   velocity: [0, 0],
   hasCollidedWith: [],
-  isCollidableWith: isCargo,
+  isCollidableWith: _ => false,
   type: ObjectType.Drone,
   delete: false,
   radius: 8,

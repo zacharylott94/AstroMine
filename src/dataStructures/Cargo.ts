@@ -1,4 +1,5 @@
-import { isDrone } from "../hof/conditions.js"
+import { isDrone, isProjectile } from "../hof/conditions.js"
+import or from "../hof/or.js"
 import { randomChoice, randomInteger } from "../libraries/random.js"
 
 const CargoTemplate: Cargo = {
@@ -11,7 +12,8 @@ const CargoTemplate: Cargo = {
   delete: false,
   radius: 4,
   hasCollidedWith: [],
-  isCollidableWith: isDrone
+  isCollidableWith: or(isDrone, isProjectile),
+  durability: 1
 }
 
 export const Cargo = (location, velocity, count, rotation = 0, angularVelocity = 0): Cargo => {
