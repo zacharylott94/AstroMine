@@ -23,6 +23,7 @@ export const isOutsideofPlay = obj => Vector.magnitude(Vector.subtract(
   Position.real(obj.position),
   Vector.CENTER_SCREEN
 )) > 500
+export const hasTimedOut = obj => obj.ttl < 1
 
 
 

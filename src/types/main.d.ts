@@ -27,7 +27,7 @@ type TPosition = Array<TVector>
 type Asteroid = IGeneric & ICollidable & IDurability & { size: number }
 type Player = ICollidable & IGeneric & IAcceleration & IRotation
 type Projectile = IRotatableGeneric & ICollidable & ITimeToLive & { owner: ObjectType }
-type Ore = ICollidable & IGeneric & IRotation
+type Ore = ICollidable & IGeneric & IRotation & ITimeToLive
 type Particle = (time: number) => TVector
 type Drone = IGeneric & ICollidable & IRotatableGeneric
 type Cargo = IGeneric & ICollidable & IRotatableGeneric & { count: number } & IDurability

@@ -10,6 +10,7 @@ const Ore = (location, velocity, rotation = 0, angularVelocity = 0): Ore => ({
   isCollidableWith: or(isPlayer, isDrone),
   rotation,
   angularVelocity,
+  ttl: 60 * 20,
 })
 
 export const randomRotationOre = (location, velocity) => Ore(location, velocity, randomInteger(360), randomChoice(-2, 2))
