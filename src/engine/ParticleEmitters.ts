@@ -139,7 +139,7 @@ const DestroyParticles = particleMap(destroyParticleGenerator, obj => obj.type =
 const ProjectileTrails = particleMap(projectileTrailGenerator, isProjectile)
 const ProjectileImpacts = particleMap(projectileImpactGenerator, and(isProjectile, hasCollided))
 const PlayerParticles = particleMap(playerBoosters, and(isPlayer, isAccelerating))
-const ProjectileTimeoutParticles = particleMap(projectileTimeoutParticleGenerator, obj => isProjectile(obj) && !obj.hasCollided && obj.delete)
+const ProjectileTimeoutParticles = particleMap(projectileTimeoutParticleGenerator, obj => isProjectile(obj) && obj.hasCollidedWith.length < 1 && obj.delete)
 const PlayerDeathParticles = particleMap(playerDeathParticleGenerator, and(isPlayer, obj => obj.delete))
 const PlayerCounterclockwiseBooster = particleMap(playerRightBooster, and(isPlayer, isRotatingCounterclockwise))
 const PlayerClockwiseBooster = particleMap(playerLeftBooster, and(isPlayer, isRotatingClockwise))
