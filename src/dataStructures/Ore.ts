@@ -1,4 +1,5 @@
-import { isPlayer } from "../hof/conditions.js"
+import { isDrone, isPlayer } from "../hof/conditions.js"
+import or from "../hof/or.js"
 import { randomChoice, randomInteger } from "../libraries/random.js"
 import GenericFactory from "./genericObject.js"
 const radius = 3
@@ -6,7 +7,7 @@ const radius = 3
 const Ore = (location, velocity, rotation = 0, angularVelocity = 0): Ore => ({
   ...GenericFactory(location, velocity, radius, ObjectType.Ore),
   hasCollidedWith: [],
-  isCollidableWith: isPlayer,
+  isCollidableWith: or(isPlayer, isDrone),
   rotation,
   angularVelocity,
 })
