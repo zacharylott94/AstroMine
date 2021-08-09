@@ -1,12 +1,5 @@
-import { shatter } from "../../dataStructures/Asteroid.js"
-
 import Collision from "../../engine/Collision.js"
 import compose from "../../hof/compose.js"
-import { conditional } from "../../hof/conditional.js"
-import { isPlayer, isAsteroidWithNoDurability, hasAcceleration, isRotatable } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import accelerate from "../objectMappers/accelerate.js"
-import { rotate } from "../objectMappers/rotate.js"
 import moveAllMoveable from "../listMappers/moveAllMoveable.js"
 import removeDeleted from "../listMappers/removeDeleted.js"
 import tickAllTTL from "../listMappers/tickAllTTL.js"
@@ -21,15 +14,11 @@ import deleteIfOutsideOfPlay from "../listMappers/deletions/deleteIfOutsideOfPla
 import explodeIntoOre from "../listMappers/explodeIntoOre.js"
 import deleteProjectilesOnTimeout from "../listMappers/deletions/deleteProjectilesOnTimeout.js"
 import despawnOreOnTimeout from "../listMappers/despawnOreOnTimeout.js"
-
-const shatterIfNoDurability = compose(
-  mapper(conditional(isAsteroidWithNoDurability, (obj: Asteroid): any => shatter(obj))),
-  list => list.flat()
-)
-
-const resetAcceleration = mapper(conditional(hasAcceleration, (obj: any) => ({ ...obj, acceleration: 0 })))
-const resetPlayerAngularVelocity = mapper(conditional(isPlayer, (player: Player) => ({ ...player, angularVelocity: 0 })))
-const rotateObjects = mapper(conditional(isRotatable, rotate))
+import shatterAsteroidsWithNoDurability from "../listMappers/shatterAsteroidsWithNoDurability.js"
+import resetAllAccelerations from "../listMappers/resetAllAccelerations.js"
+import resetPlayerAngularVelocity from "../listMappers/resetPlayerAngularVelocity.js"
+import rotateObjects from "../listMappers/rotateObjects.js"
+import accelerateAll from "../listMappers/accelerateAll.js"
 
 export const updateObjectList = [
   removeDeleted,
@@ -44,14 +33,14 @@ export const updateObjectList = [
   deleteIfCollided,
   deleteIfPlayerCollidingWithAsteroid,
   deletePlayerCollidingWithDrone,
-  shatterIfNoDurability,
-  mapper(conditional(hasAcceleration, accelerate)),
+  shatterAsteroidsWithNoDurability,
+  accelerateAll,
   deleteIfOutsideOfPlay,
   deletePickedUpCargo,
   deleteProjectilesOnTimeout,
   despawnOreOnTimeout,
   explodeIntoOre,
-  resetAcceleration,
+  resetAllAccelerations,
   grantClones,
 ].reduce(compose)
 
