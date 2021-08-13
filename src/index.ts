@@ -9,6 +9,8 @@ import { updateObjectList } from "./behaviors/gameState Updaters/updateObjectLis
 import { gameRenderSetup } from "./draw/setupFunctions.ts/gameRenderSetup.js"
 import { updateOreSetup } from "./behaviors/gameState Updaters/updateOre.js"
 import droneSpawner from "./engine/droneSpawner.js"
+import array from "./libraries/array.js"
+import text from "./draw/text.js"
 
 const GameState = initGameState()
 
@@ -19,9 +21,14 @@ const updateOre = updateOreSetup(GameState.objectList)
 const updateScore = updateScoreSetup(GameState.objectList)
 humanInterface.reset()
 
+//debug
+let lastTime = 0
+let frameTimes = [0]
+
 const graphicsLoop = () => {
   clear()
   gameRender()
+  text(() => [40, 10], () => `FPS: ${Math.round(1000 / array.average(frameTimes))}`)
 }
 
 const physicsLoop = () => {
@@ -50,6 +57,10 @@ const physicsLoop = () => {
   }
 
   GameState.timer(_ => ++_)
+  //debug
+  frameTimes.unshift(Date.now() - lastTime)
+  frameTimes = array.limit(30)(frameTimes) as number[]
+  lastTime = Date.now()
 }
 
 setInterval(graphicsLoop, 1000 / 60)
