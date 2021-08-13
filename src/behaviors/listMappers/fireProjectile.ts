@@ -4,7 +4,7 @@ import { conditional } from "../../hof/conditional.js"
 import { hasPlayer, isPlayerProjectile } from "../../hof/conditions.js"
 import getPlayer from "../listReducers/getPlayer.js"
 
-export function fireProjectile(objectList) {
+function fireProjectile(objectList) {
   const player = getPlayer(objectList)
   return objectList.concat(PlayerProjectile(player))
 }

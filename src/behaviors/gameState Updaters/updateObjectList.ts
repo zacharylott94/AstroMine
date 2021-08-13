@@ -7,7 +7,7 @@ import constrainThingsWIthClones from "../listMappers/constrainThingsWIthClones.
 import deleteIfPlayerCollidingWithAsteroid from "../listMappers/deletions/deleteIfPlayerCollidingWithAsteroid.js"
 import deleteIfCollided from "../listMappers/deletions/deleteIfCollided.js"
 import tickDurabilityIfHitByPlayer from "../listMappers/tickDurabilityIfHitByPlayer.js"
-import grantClones from "../listMappers/grantClones.js"
+import grantClonesOnTrigger from "../listMappers/grantClonesOnTrigger.js"
 import deletePickedUpCargo from "../listMappers/deletions/deletePickedUpCargo.js"
 import deletePlayerCollidingWithDrone from "../listMappers/deletions/deletePlayerCollidingWithDrone.js"
 import deleteIfOutsideOfPlay from "../listMappers/deletions/deleteIfOutsideOfPlay.js"
@@ -41,7 +41,7 @@ export const updateObjectList = [
   despawnOreOnTimeout,
   explodeIntoOre,
   resetAllAccelerations,
-  grantClones,
+  grantClonesOnTrigger,
 ].reduce(compose)
 
 

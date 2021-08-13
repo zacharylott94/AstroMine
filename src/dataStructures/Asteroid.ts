@@ -11,7 +11,6 @@ const SIZE_TO_RADIUS =
   [
     15,
     25,
-    40,
   ]
 const DURABILITY = 3
 const VELOCITY_SCALE = 1.1
@@ -64,10 +63,4 @@ export const shatter = (asteroid: Asteroid): (Asteroid | Ore)[] => {
   return shatterVelocities(asteroid)
     .map(vel => factory(vel))
     .concat({ ...asteroid, delete: true })
-}
-
-
-export default {
-  create
-
 }
