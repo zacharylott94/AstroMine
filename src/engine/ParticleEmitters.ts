@@ -3,7 +3,7 @@ import Position from "../dataStructures/position/Position.js"
 import Vector from "../dataStructures/vector/Vector.js"
 import compose from "../hof/compose.js"
 import { randomAngle, randomInteger, randomNumber } from "../libraries/random.js"
-import { hasCollided, isAccelerating, isPlayer, isProjectile, isRotatingClockwise, isRotatingCounterclockwise } from "../hof/conditions.js"
+import { hasCollided, isAccelerating, isDrone, isPlayer, isProjectile, isRotatingClockwise, isRotatingCounterclockwise } from "../hof/conditions.js"
 import and from "../hof/and.js"
 import array from "../libraries/array.js"
 import mod from "../libraries/mod.js"
@@ -125,6 +125,19 @@ const particleMap = (method, filter) => (objectListGetter, timerGetter) => list 
   return concat(list, particles)
 }
 
+const droneDestructionParticleGenerator = timer => object => {
+  return generateParticleList({
+    get location() { return Position.real(object.position) },
+    get speed() { return randomNumber(.5) },
+    angle: 0,
+    spread: 360,
+    number: 10,
+    get lifetime() { return randomInteger(360, 180) },
+    timer,
+    acceleration: zeroAcceleration
+  })
+}
+
 const DestroyParticles = particleMap(destroyParticleGenerator, obj => obj.type === ObjectType.Asteroid && obj.delete)
 const ProjectileTrails = particleMap(projectileTrailGenerator, isProjectile)
 const ProjectileImpacts = particleMap(projectileImpactGenerator, and(isProjectile, hasCollided))
@@ -133,6 +146,7 @@ const ProjectileTimeoutParticles = particleMap(projectileTimeoutParticleGenerato
 const PlayerDeathParticles = particleMap(playerDeathParticleGenerator, and(isPlayer, obj => obj.delete))
 const PlayerCounterclockwiseBooster = particleMap(playerRightBooster, and(isPlayer, isRotatingCounterclockwise))
 const PlayerClockwiseBooster = particleMap(playerLeftBooster, and(isPlayer, isRotatingClockwise))
+const droneDestructionParticles = particleMap(droneDestructionParticleGenerator, and(isDrone, obj => obj.delete))
 export const particleGeneratorSetup = (objectListGetter, timerGetter) => {
   return [
     DestroyParticles,
@@ -142,7 +156,8 @@ export const particleGeneratorSetup = (objectListGetter, timerGetter) => {
     ProjectileTimeoutParticles,
     PlayerDeathParticles,
     PlayerClockwiseBooster,
-    PlayerCounterclockwiseBooster
+    PlayerCounterclockwiseBooster,
+    droneDestructionParticles
   ].map(f => f(objectListGetter, timerGetter))
     .reduce(compose)
 }
