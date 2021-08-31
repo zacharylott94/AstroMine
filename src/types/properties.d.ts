@@ -40,4 +40,5 @@ const enum ObjectType {
   Ore,
   CloneTrigger,
   Cargo,
+  X
 }

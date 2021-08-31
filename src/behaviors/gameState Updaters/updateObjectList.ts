@@ -12,13 +12,14 @@ import deletePickedUpCargo from "../listMappers/deletions/deletePickedUpCargo.js
 import deletePlayerCollidingWithDrone from "../listMappers/deletions/deletePlayerCollidingWithDrone.js"
 import deleteIfOutsideOfPlay from "../listMappers/deletions/deleteIfOutsideOfPlay.js"
 import explodeIntoOre from "../listMappers/explodeIntoOre.js"
-import deleteProjectilesOnTimeout from "../listMappers/deletions/deleteProjectilesOnTimeout.js"
+import deleteObjectsOnTimeout from "../listMappers/deletions/deleteObjectsOnTimeout.js"
 import despawnOreOnTimeout from "../listMappers/despawnOreOnTimeout.js"
 import shatterAsteroidsWithNoDurability from "../listMappers/shatterAsteroidsWithNoDurability.js"
 import resetAllAccelerations from "../listMappers/resetAllAccelerations.js"
 import resetPlayerAngularVelocity from "../listMappers/resetPlayerAngularVelocity.js"
 import rotateObjects from "../listMappers/rotateObjects.js"
 import accelerateAll from "../listMappers/accelerateAll.js"
+import spawnXwhenDroneDestroyed from "../listMappers/spawnXwhenDroneDestroyed.js"
 
 export const updateObjectList = [
   removeDeleted,
@@ -37,11 +38,12 @@ export const updateObjectList = [
   accelerateAll,
   deleteIfOutsideOfPlay,
   deletePickedUpCargo,
-  deleteProjectilesOnTimeout,
+  deleteObjectsOnTimeout,
   despawnOreOnTimeout,
   explodeIntoOre,
   resetAllAccelerations,
   grantClonesOnTrigger,
+  spawnXwhenDroneDestroyed,
 ].reduce(compose)
 
 

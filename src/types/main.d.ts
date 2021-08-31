@@ -33,6 +33,7 @@ type Drone = IGeneric & ICollidable & IRotatableGeneric
 type Cargo = IGeneric & ICollidable & IRotatableGeneric & { count: number } & IDurability
 type GameObject = Player | Projectile | Asteroid | Ore | Drone | Cargo
 type Trigger = ICollidable & ITypeable
+type X = IPosition & ITimeToLive & ITypeable & ICollidable
 
 type Degrees = number
 
