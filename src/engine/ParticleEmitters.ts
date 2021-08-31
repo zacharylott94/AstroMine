@@ -7,7 +7,7 @@ import { hasCollided, isAccelerating, isPlayer, isProjectile, isRotatingClockwis
 import and from "../hof/and.js"
 import array from "../libraries/array.js"
 import mod from "../libraries/mod.js"
-import { wavy } from "./accelerationFunctions.js"
+import { wavy, zeroAcceleration } from "./accelerationFunctions.js"
 
 type ParticleGeneratorSettings = {
   number: number,
@@ -83,16 +83,6 @@ const projectileImpactGenerator = timer => (projectile) => generateParticleList(
 })
 
 const destroyParticleGenerator = timer => object => {
-  const offset = randomInteger(360)
-  const direction = () => {
-    if (Math.random() >= .5) return 1
-    return -1
-  }
-  const acceleration = offset => direction => {
-    return time => Vector.fromDegreesAndMagnitude(mod((time * 42 * direction) + offset, 360),
-      direction * 10 / Math.pow(time, 2.3)
-    )
-  }
   return generateParticleList({
     get location() { return Position.real(object.position) },
     get speed() { return randomNumber(3, 1) },
@@ -101,7 +91,7 @@ const destroyParticleGenerator = timer => object => {
     get number() { return object.radius * 2 },
     get lifetime() { return randomInteger(120, 60) },
     timer,
-    acceleration: () => acceleration(offset)(direction())
+    acceleration: zeroAcceleration
   })
 }
 
@@ -124,7 +114,7 @@ const playerDeathParticleGenerator = timer => player => generateParticleList({
   get number() { return randomInteger(40, 30) },
   get lifetime() { return randomInteger(520, 400) },
   timer,
-  acceleration: wavy({ period: 5, amplitude: 2, waveLine: () => randomInteger(360) })
+  acceleration: zeroAcceleration
 })
 
 const particleMap = (method, filter) => (objectListGetter, timerGetter) => list => {

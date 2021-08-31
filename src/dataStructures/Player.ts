@@ -4,6 +4,9 @@ import GenericFactory from "./genericObject.js"
 import Vector from "./vector/Vector.js"
 
 const PLAYER_RADIUS = 6
+const THRUST = .02
+export const PLAYER_ROTATION_SPEED = 4
+
 const isCollidableWith = [
   isAsteroid,
   isOre,
@@ -19,5 +22,7 @@ const player = (): Player => {
     angularVelocity: 0,
   }
 }
+export const playerThrust = (player: Player) => ({ ...player, acceleration: THRUST })
+
 
 export default player
