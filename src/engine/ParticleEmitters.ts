@@ -146,7 +146,7 @@ const ProjectileTimeoutParticles = particleMap(projectileTimeoutParticleGenerato
 const PlayerDeathParticles = particleMap(playerDeathParticleGenerator, and(isPlayer, obj => obj.delete))
 const PlayerCounterclockwiseBooster = particleMap(playerRightBooster, and(isPlayer, isRotatingCounterclockwise))
 const PlayerClockwiseBooster = particleMap(playerLeftBooster, and(isPlayer, isRotatingClockwise))
-const droneDestructionParticles = particleMap(droneDestructionParticleGenerator, and(isDrone, obj => obj.delete))
+const droneDestructionParticles = particleMap(droneDestructionParticleGenerator, and(isDrone, and(obj => obj.delete, hasCollided)))
 export const particleGeneratorSetup = (objectListGetter, timerGetter) => {
   return [
     DestroyParticles,
