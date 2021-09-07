@@ -8,9 +8,8 @@ export const gameRenderSetup = (gameState) => {
   return fif(gameState.paused,
     () => text(() => Vector.CENTER_SCREEN, () => 'PAUSED', { size: '2em' }),
     () => {
-      gameState.objectList(gameObjectRenderer)
-      gameState.particleList(particleRenderer(gameState.timer()))
-      //Note that this is set to track ore. This is temporary.
+      gameObjectRenderer(gameState.objectList())
+      particleRenderer(gameState.timer())(gameState.particleList())
       drawText(() => [Vector.CENTER_SCREEN[0], 20], () => `SCORE: ${gameState.score()}`)
       drawText(() => [Vector.CENTER_SCREEN[0], 40], () => `CARGO: ${gameState.ore()}`)
     })
