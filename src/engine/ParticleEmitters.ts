@@ -1,4 +1,4 @@
-import { Particle as particleSetup } from "../dataStructures/Particle.js"
+import { nullParticle, Particle as particleSetup } from "../dataStructures/Particle.js"
 import Position from "../dataStructures/position/Position.js"
 import Vector from "../dataStructures/vector/Vector.js"
 import compose from "../hof/compose.js"
@@ -24,7 +24,7 @@ const concat = array.concat
 const Particle = particleSetup(Vector.GAME_DIMENSIONS)
 
 const generateParticleList = (generatorSettings: ParticleGeneratorSettings) => {
-  let particles = new Array<Particle>(generatorSettings.number).fill(Particle(0))
+  let particles = new Array<Particle>(generatorSettings.number).fill(nullParticle)
   let randomVelocity = () => Vector.fromDegreesAndMagnitude(randomAngle(generatorSettings.angle, generatorSettings.spread), generatorSettings.speed)
   particles = particles.map(_ => Particle(generatorSettings.timer(), generatorSettings.location, randomVelocity(), generatorSettings.lifetime, generatorSettings.acceleration()))
   return particles

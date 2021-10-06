@@ -42,3 +42,7 @@ const enum ObjectType {
   Cargo,
   X
 }
+
+const enum ParticleType {
+  Dot,
+}
