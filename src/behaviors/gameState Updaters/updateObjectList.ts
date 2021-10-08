@@ -19,7 +19,6 @@ import resetAllAccelerations from "../listMappers/resetAllAccelerations.js"
 import resetPlayerAngularVelocity from "../listMappers/resetPlayerAngularVelocity.js"
 import rotateObjects from "../listMappers/rotateObjects.js"
 import accelerateAll from "../listMappers/accelerateAll.js"
-import spawnXwhenDroneDestroyed from "../listMappers/spawnXwhenDroneDestroyed.js"
 
 export const updateObjectList = [
   removeDeleted,
@@ -43,7 +42,6 @@ export const updateObjectList = [
   explodeIntoOre,
   resetAllAccelerations,
   grantClonesOnTrigger,
-  spawnXwhenDroneDestroyed,
 ].reduce(compose)
 
 

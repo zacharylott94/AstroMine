@@ -45,6 +45,11 @@ export const isOrePlayerOrProjectile = [isPlayer, isProjectile, isOre].reduce(or
 export const isCloneTrigger = isType(ObjectType.CloneTrigger)
 export const isCargo = isType(ObjectType.Cargo)
 export const isDrone = isType(ObjectType.Drone)
+export const isDroneThatHasCollided = [
+  isDrone,
+  hasCollided,
+  obj => obj.delete
+].reduce(and)
 
 
 //list property checks

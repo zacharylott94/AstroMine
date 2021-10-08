@@ -11,6 +11,7 @@ import ngon from "./ngon.js"
 import { drawX } from "./drawX.js"
 import { partial } from "../hof/partial.js"
 import { dotParticleRenderer } from "./dotParticleRenderer.js"
+import passthrough from "../hof/passthrough.js"
 
 function buildRenderer(condition, draw) {
   return mapper(conditional(condition, Renderer(canvasContextScope(draw))))
@@ -20,7 +21,8 @@ const particlesToPositionTypeTuples = (time, particles) => particles.map(particl
 export const particleRenderer = time => (particles: Particle[]) => {
   const renderer = [
     partial(particlesToPositionTypeTuples, time),
-    mapper(conditional(isType(ParticleType.Dot), dotParticleRenderer)),
+    mapper(conditional(isType(ParticleType.Dot), passthrough(dotParticleRenderer))),
+    mapper(conditional(isType(ParticleType.X), passthrough(drawX)))
   ].reduce(compose)
   return renderer(particles)
 }
@@ -31,7 +33,6 @@ const playerRenderer = buildRenderer(isPlayer, playerShipGraphic)
 const projectileRenderer = buildRenderer(isProjectile, projectileGraphic)
 const droneRenderer = buildRenderer(isDrone, ngon(6))
 const cargoRenderer = buildRenderer(isCargo, ngon(5))
-const XRenderer = buildRenderer(isType(ObjectType.X), drawX)
 export const gameObjectRenderer = [
   asteroidRenderer,
   playerRenderer,
@@ -39,5 +40,4 @@ export const gameObjectRenderer = [
   oreRenderer,
   droneRenderer,
   cargoRenderer,
-  XRenderer,
 ].reduce(compose)

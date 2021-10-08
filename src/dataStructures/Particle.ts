@@ -12,7 +12,7 @@ const particleEquation = (position: TVector, velocity: TVector, acceleration: ac
   ].reduce(Vector.add)
 }
 
-export const Particle = vectorWrap => (timeOffset: number, position: TVector, velocity: TVector, ttl = Number.MAX_SAFE_INTEGER, acceleration: acceleration, type = ParticleType.Dot): Particle => (time: number) => {
+export const Particle = vectorWrap => (timeOffset: number, position: TVector, velocity: TVector, ttl = Number.MAX_SAFE_INTEGER, acceleration: acceleration, type): Particle => (time: number) => {
   if (time >= ttl + timeOffset) return { position: Vector.INF, type }
   return {
     position: wrapVector(vectorWrap, particleEquation(position, velocity, acceleration, timeOffset, time)),

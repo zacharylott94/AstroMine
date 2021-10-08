@@ -40,9 +40,9 @@ const enum ObjectType {
   Ore,
   CloneTrigger,
   Cargo,
-  X
 }
 
 const enum ParticleType {
   Dot,
+  X
 }
