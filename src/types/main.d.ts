@@ -17,7 +17,7 @@ interface IDurability { durability: number }
 
 interface IGeneric extends IMoveable, ITypeable, IDeleteable, IRadius { }
 
-type RenderFunction<T> = (location: TVector, object: T) => void
+type RenderFunction<T> = (tuple: [TVector, T]) => void
 type Condition = (...args) => boolean
 type Monoid<T> = (thing: T) => T
 

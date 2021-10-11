@@ -1,5 +1,5 @@
-import Vector from "../dataStructures/vector/Vector.js"
-import { context } from "../engine/canvas.js"
+import Vector from "../../dataStructures/vector/Vector.js"
+import { context } from "../../engine/canvas.js"
 
 export const clear = () => {
   const [width, height] = Vector.GAME_DIMENSIONS

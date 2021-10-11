@@ -1,7 +1,7 @@
 import { gameObjectRenderer, particleRenderer } from "../composedRenderingFunctions.js"
-import drawText from "../text.js"
+import drawText from "../graphics/text.js"
 import fif from "../../hof/fif.js"
-import text from "../text.js"
+import text from "../graphics/text.js"
 import Vector from "../../dataStructures/vector/Vector.js"
 
 export const gameRenderSetup = (gameState) => {

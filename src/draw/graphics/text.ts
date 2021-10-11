@@ -1,5 +1,5 @@
-import { context } from "../engine/canvas.js"
-import { canvasContextScope } from "./canvasContextScope.js"
+import { context } from "../../engine/canvas.js"
+import { canvasContextScope } from "../library/canvasContextScope.js"
 
 const drawText = (locationFunction, textFunction, { color = "rgb(0,255,0)", size = '1em' } = {}) => {
   context.textAlign = "center"

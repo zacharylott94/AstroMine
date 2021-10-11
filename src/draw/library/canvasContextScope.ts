@@ -1,4 +1,4 @@
-import { context } from "../engine/canvas.js"
+import { context } from "../../engine/canvas.js"
 export function canvasContextScope(func) {
   return function (...args) {
     context.save()

@@ -1,6 +1,5 @@
 import AsteroidSpawnSystem from "./engine/asteroidSpawner.js"
 import { initGameState } from "./engine/global.js"
-import { clear } from "./draw/clear.js"
 import { setupInterface } from "./engine/humanInterface.js"
 import Controller from "./engine/keyboardController.js"
 import { updateScoreSetup } from "./behaviors/gameState Updaters/updateScore.js"
@@ -10,7 +9,8 @@ import { gameRenderSetup } from "./draw/setupFunctions.ts/gameRenderSetup.js"
 import { updateOreSetup } from "./behaviors/gameState Updaters/updateOre.js"
 import droneSpawner from "./engine/droneSpawner.js"
 import array from "./libraries/array.js"
-import text from "./draw/text.js"
+import text from "./draw/graphics/text.js"
+import { clear } from "./draw/library/clear.js"
 
 const GameState = initGameState()
 

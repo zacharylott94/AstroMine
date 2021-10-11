@@ -1,4 +1,4 @@
-import { Canvas } from "../engine/canvas.js"
+import { Canvas } from "../../engine/canvas.js"
 
 export const color = str => draw => (...args) => {
   const ctx = Canvas.context
