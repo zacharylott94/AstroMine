@@ -1,7 +1,5 @@
 import { unitCircle } from "./circle.js"
-import { canvasContextScope } from "./canvasContextScope.js"
-import compose from "../hof/compose.js"
-import { extractPosition } from "../hof/extract.js"
+import particleRenderer from "./library/particleRenderer.js"
 
 
-export const dotParticleRenderer = compose(extractPosition, canvasContextScope(unitCircle))
+export const dotParticleRenderer = particleRenderer(unitCircle)

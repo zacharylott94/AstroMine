@@ -8,10 +8,10 @@ import Renderer from "./renderer.js"
 import { canvasContextScope } from "./canvasContextScope.js"
 import compose from "../hof/compose.js"
 import ngon from "./ngon.js"
-import { drawX } from "./drawX.js"
 import { partial } from "../hof/partial.js"
 import { dotParticleRenderer } from "./dotParticleRenderer.js"
 import passthrough from "../hof/passthrough.js"
+import XParticleRenderer from "./XParticleRenderer.js"
 
 function buildRenderer(condition, draw) {
   return mapper(conditional(condition, Renderer(canvasContextScope(draw))))
@@ -22,7 +22,7 @@ export const particleRenderer = time => (particles: Particle[]) => {
   const renderer = [
     partial(particlesToPositionTypeTuples, time),
     mapper(conditional(isType(ParticleType.Dot), passthrough(dotParticleRenderer))),
-    mapper(conditional(isType(ParticleType.X), passthrough(drawX)))
+    mapper(conditional(isType(ParticleType.X), passthrough(XParticleRenderer)))
   ].reduce(compose)
   return renderer(particles)
 }
