@@ -17,7 +17,7 @@ interface IDurability { durability: number }
 
 interface IGeneric extends IMoveable, ITypeable, IDeleteable, IRadius { }
 
-type RenderFunction<T> = (location: TVector, object: T) => void
+type RenderFunction<T> = (tuple: [TVector, T]) => void
 type Condition = (...args) => boolean
 type Monoid<T> = (thing: T) => T
 
@@ -27,10 +27,13 @@ type TPosition = Array<TVector>
 type Asteroid = IGeneric & ICollidable & IDurability & { size: number }
 type Player = ICollidable & IGeneric & IAcceleration & IRotation
 type Projectile = IRotatableGeneric & ICollidable & ITimeToLive & { owner: ObjectType }
-type Ore = ICollidable & IGeneric & IRotation
-type Particle = (time: number) => TVector
-type GameObject = Player | Projectile | Asteroid | Ore
+type Ore = ICollidable & IGeneric & IRotation & ITimeToLive
+type Particle = (time: number) => { position: TVector, type: ParticleType }
+type Drone = IGeneric & ICollidable & IRotatableGeneric
+type Cargo = IGeneric & ICollidable & IRotatableGeneric & { count: number } & IDurability
+type GameObject = Player | Projectile | Asteroid | Ore | Drone | Cargo
 type Trigger = ICollidable & ITypeable
+type X = IPosition & ITimeToLive & ITypeable & ICollidable
 
 type Degrees = number
 
@@ -42,7 +45,8 @@ interface HumanInterface {
   rotateCounterclockwise: Function,
   rotateClockwise: Function,
   pause: Function,
-  reset: Function
+  reset: Function,
+  jettison: Function,
 }
 
 type GameState = {

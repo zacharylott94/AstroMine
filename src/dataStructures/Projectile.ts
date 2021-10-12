@@ -1,6 +1,6 @@
 
-import { isAsteroid } from "../hof/conditions.js"
-import GenericFactory from "./genericObject.js"
+import { isAsteroid, isCargo, isDrone } from "../hof/conditions.js"
+import or from "../hof/or.js"
 import Position from "./position/Position.js"
 import Vector from "./vector/Vector.js"
 
@@ -15,16 +15,30 @@ type projectileSettings = {
   owner: ObjectType,
 }
 
+const projectileTemplate: Projectile = {
+  ttl: PROJECTILE_TTL,
+  position: [Vector.ZERO],
+  velocity: Vector.ZERO,
+  radius: 1,
+  rotation: 0,
+  hasCollidedWith: [],
+  isCollidableWith: () => false,
+  owner: ObjectType.Generic,
+  angularVelocity: 0,
+  type: ObjectType.Projectile,
+  delete: false
+}
+
 export const Projectile = (settings: projectileSettings): Projectile => {
   const velocity = Vector.fromDegreesAndMagnitude(settings.rotation, PROJECTILE_SPEED)
   return {
-    ...GenericFactory(settings.location, Vector.add(velocity, settings.inheritedVelocity), 1, ObjectType.Projectile),
+    ...projectileTemplate,
+    position: Position.fromVector(settings.location),
+    velocity: Vector.add(velocity, settings.inheritedVelocity),
     ttl: PROJECTILE_TTL,
     rotation: settings.rotation,
-    hasCollidedWith: [],
     isCollidableWith: settings.isCollidableWith,
     owner: settings.owner,
-    angularVelocity: 0
   }
 }
 
@@ -35,7 +49,7 @@ export const PlayerProjectile = player => {
     location,
     rotation: player.rotation,
     owner: ObjectType.Player,
-    isCollidableWith: isAsteroid,
+    isCollidableWith: [isAsteroid, isCargo, isDrone].reduce(or),
     inheritedVelocity: player.velocity
   }
   return Projectile(settings)

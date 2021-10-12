@@ -1,34 +1,28 @@
 import { conditional } from "../hof/conditional.js"
 import mapper from "../hof/mapper.js"
-import { isAsteroid, isCloneTrigger, isOre, isPlayer, isProjectile } from "../hof/conditions.js"
-import { circle, unitCircle } from "./circle.js"
-import playerShipGraphic from "./playerShipGraphic.js"
-import projectileGraphic from "./projectileGraphic.js"
-import Renderer from "./renderer.js"
-import { canvasContextScope } from "./canvasContextScope.js"
+import { isType } from "../hof/conditions.js"
 import compose from "../hof/compose.js"
-import square from "./square.js"
-import { color } from "./color.js"
+import { partial } from "../hof/partial.js"
+import passthrough from "../hof/passthrough.js"
+import { asteroidRenderer, cargoRenderer, droneRenderer, oreRenderer, playerRenderer, projectileRenderer } from "./objectRenderers.js"
+import { dotParticleRenderer, XParticleRenderer } from "./particleRenderers.js"
 
-function buildRenderer(condition, draw) {
-  return mapper(conditional(condition, Renderer(canvasContextScope(draw))))
-}
-
-const particlesToPositions = (time, particles) => particles.map(particle => particle(time))
-const positionToCircle = canvasContextScope(unitCircle)
-
+const particlesToPositionTypeTuples = (time, particles) => particles.map(particle => particle(time))
 export const particleRenderer = time => (particles: Particle[]) => {
-  particlesToPositions(time, particles).forEach(positionToCircle)
-  return particles
+  const renderer = [
+    partial(particlesToPositionTypeTuples, time),
+    mapper(conditional(isType(ParticleType.Dot), passthrough(dotParticleRenderer))),
+    mapper(conditional(isType(ParticleType.X), passthrough(XParticleRenderer)))
+  ].reduce(compose)
+  return renderer(particles)
 }
 
-export const asteroidRenderer = buildRenderer(isAsteroid, circle)
-export const oreRenderer = buildRenderer(isOre, square)
-export const playerRenderer = buildRenderer(isPlayer, playerShipGraphic)
-export const projectileRenderer = buildRenderer(isProjectile, projectileGraphic)
+
 export const gameObjectRenderer = [
   asteroidRenderer,
   playerRenderer,
   projectileRenderer,
   oreRenderer,
+  droneRenderer,
+  cargoRenderer,
 ].reduce(compose)

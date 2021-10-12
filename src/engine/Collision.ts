@@ -5,7 +5,6 @@ import reduceMap from "../hof/reduceMap.js"
 
 export function checkCollision(object: ICollidable & ITypeable, otherObject: ICollidable & ITypeable): ICollidable & ITypeable {
   if (object === otherObject) return object
-  // if (object.hasCollidedWith.length > 0) return object
   const realPosition = Position.real(object.position)
   let closestPosition
   if (object.position.length === otherObject.position.length)

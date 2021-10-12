@@ -36,8 +36,13 @@ const enum ObjectType {
   Player,
   Projectile,
   Generic,
-  UFO,
+  Drone,
   Ore,
   CloneTrigger,
-  DespawnTrigger,
+  Cargo,
+}
+
+const enum ParticleType {
+  Dot,
+  X
 }

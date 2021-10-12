@@ -1,1 +1,0 @@
-{"version":3,"file":"conditional.js","sourceRoot":"","sources":["../../src/hof/conditional.ts"],"names":[],"mappings":"AAIA,MAAM,UAAU,WAAW,CAAI,SAAoB,EAAE,MAAiB;IACpE,OAAO,UAAU,QAAW;QAC1B,IAAI,SAAS,CAAC,QAAQ,CAAC;YAAE,OAAO,MAAM,CAAC,QAAQ,CAAC,CAAA;QAChD,OAAO,QAAQ,CAAA;IACjB,CAAC,CAAA;AACH,CAAC"}

@@ -19,3 +19,6 @@ export const wavy = ({ offset = () => randomNumber(Math.PI * 2), amplitude = 5, 
   return accelerationBuilder
 
 }
+
+export const constantAcceleration = (acceleration: TVector) => () => _time => acceleration
+export const zeroAcceleration = constantAcceleration(Vector.ZERO)

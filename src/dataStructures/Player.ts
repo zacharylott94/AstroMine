@@ -1,13 +1,16 @@
-import { isAsteroid, isOre, isOwner } from "../hof/conditions.js"
+import { isAsteroid, isDrone, isOre } from "../hof/conditions.js"
 import or from "../hof/or.js"
 import GenericFactory from "./genericObject.js"
 import Vector from "./vector/Vector.js"
 
 const PLAYER_RADIUS = 6
+const THRUST = .02
+export const PLAYER_ROTATION_SPEED = 4
+
 const isCollidableWith = [
-  isOwner(ObjectType.UFO),
   isAsteroid,
   isOre,
+  isDrone,
 ].reduce(or)
 const player = (): Player => {
   return {
@@ -19,5 +22,7 @@ const player = (): Player => {
     angularVelocity: 0,
   }
 }
+export const playerThrust = (player: Player) => ({ ...player, acceleration: THRUST })
+
 
 export default player

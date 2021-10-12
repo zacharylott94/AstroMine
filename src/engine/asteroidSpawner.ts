@@ -1,36 +1,17 @@
 import { spawnableAsteroid } from "../dataStructures/Asteroid.js"
-import Vector from "../dataStructures/vector/Vector.js"
-import { randomInteger } from "../libraries/random.js"
+import { generateRandomVelocity, generateSpawnLocation } from "./spawnHelperFunctions.js"
 
 const difficultyRatio = 1 / 18
-const minAsteroidVelocity = .5
 const AsteroidDifficultyVelocityRatio = 1 / 36
 
 
-function generateSpawnLocation(): TVector {
-  const spawnRing = 400
-  return Vector.add(Vector.fromDegreesAndMagnitude(randomInteger(360), spawnRing),
-    Vector.CENTER_SCREEN)
-
-}
-
-function generateRandomVelocity(difficulty: number, position): TVector {
-  const targetPoint = Vector.add(
-    Vector.fromDegreesAndMagnitude(randomInteger(360), 100),
-    Vector.CENTER_SCREEN)
-  const targetDirection = Vector.normalize(
-    Vector.subtract(targetPoint, position)
-  )
-  return Vector.scale(targetDirection, Math.max(minAsteroidVelocity, Math.random() * difficulty * AsteroidDifficultyVelocityRatio))
-}
-
-const AsteroidSpawnSystem = difficulty => (objectList: GameObject[]): GameObject[] => {
+const AsteroidSpawnSystem = (locationGenerator, velocityGenerator) => difficulty => (objectList: GameObject[]): GameObject[] => {
   const asteroids = objectList.filter(obj => obj.type === ObjectType.Asteroid)
   if (asteroids.length - 1 < (difficulty + 1) * difficultyRatio) {
-    const location = generateSpawnLocation()
-    return objectList.concat(spawnableAsteroid(location, generateRandomVelocity(difficulty, location)))
+    const location = locationGenerator()
+    return objectList.concat(spawnableAsteroid(location, velocityGenerator(difficulty * AsteroidDifficultyVelocityRatio, location)))
   }
   return objectList
 }
 
-export default AsteroidSpawnSystem
+export default AsteroidSpawnSystem(generateSpawnLocation, generateRandomVelocity)

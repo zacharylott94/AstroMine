@@ -1,1 +1,0 @@
-{"version":3,"file":"degrees.js","sourceRoot":"","sources":["../../../src/dataStructures/vector/degrees.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,wBAAwB,CAAA;AACxC,OAAO,OAAO,MAAM,cAAc,CAAA;AAElC,eAAe,CAAC,MAAe,EAAU,EAAE;IACzC,MAAM,GAAG,GAAW,OAAO,CAAC,MAAM,CAAC,CAAA;IACnC,OAAO,GAAG,CAAC,GAAG,GAAG,GAAG,GAAG,CAAC,GAAG,IAAI,CAAC,EAAE,EAAE,GAAG,CAAC,CAAA;AAC1C,CAAC,CAAA"}

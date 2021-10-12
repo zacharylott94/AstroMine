@@ -1,1 +1,0 @@
-{"version":3,"file":"specificPositionVector.js","sourceRoot":"","sources":["../../../src/dataStructures/position/specificPositionVector.ts"],"names":[],"mappings":"AAAA,eAAe,KAAK,CAAC,EAAE,CAAC,CAAC,QAAmB,EAAW,EAAE;IACvD,IAAI,CAAC,QAAQ;QAAE,OAAO,CAAC,CAAC,EAAE,CAAC,CAAC,CAAA;IAC5B,OAAO,QAAQ,CAAC,KAAK,CAAC,CAAA;AACxB,CAAC,CAAA"}

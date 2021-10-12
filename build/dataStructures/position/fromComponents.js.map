@@ -1,1 +1,0 @@
-{"version":3,"file":"fromComponents.js","sourceRoot":"","sources":["../../../src/dataStructures/position/fromComponents.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,qBAAqB,CAAA;AACxC,OAAO,SAAS,MAAM,gBAAgB,CAAA;AAEtC,MAAM,CAAC,OAAO,UAAU,cAAc,CAAC,OAAO,EAAE,CAAS,EAAE,CAAS;IAClE,OAAO,SAAS,CAAC,OAAO,EAAE,MAAM,CAAC,cAAc,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAA;AACxD,CAAC"}

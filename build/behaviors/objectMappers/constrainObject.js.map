@@ -1,1 +1,0 @@
-{"version":3,"file":"constrainObject.js","sourceRoot":"","sources":["../../../src/behaviors/objectMappers/constrainObject.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,2CAA2C,CAAA;AAEhE,MAAM,CAAC,OAAO,WAAc,GAAkB;IAC5C,OAAO,EAAE,GAAG,GAAG,EAAE,QAAQ,EAAE,QAAQ,CAAC,SAAS,CAAC,GAAG,CAAC,QAAQ,CAAC,EAAE,CAAA;AAC/D,CAAC"}
