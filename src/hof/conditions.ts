@@ -1,18 +1,13 @@
 import Position from "../dataStructures/position/Position.js"
 import Vector from "../dataStructures/vector/Vector.js"
 import and from "./and.js"
-import or from "./or.js"
-
-
 
 //property checks
 
-export const durabilityLT1 = obj => obj?.durability < 1
+const durabilityLT1 = obj => obj?.durability < 1
 export const hasCollided = obj => obj.hasCollidedWith.length > 0
-export const hasCollidedMultiple = obj => obj.hasCollidedWith.length > 1
 export const hasCollidedWith = objectType => obj => obj.hasCollidedWith.filter(type => type === objectType).length > 0
-export const hasProperties = (...props: string[]) => obj => props.reduce((l, r) => l && r in obj, true)
-export const isCollidable = hasProperties("hasCollidedWith", "radius")
+const hasProperties = (...props: string[]) => obj => props.reduce((l, r) => l && r in obj, true)
 export const isMoveable = hasProperties("velocity", "position")
 export const hasDurability = hasProperties("durability")
 export const isRotatable = hasProperties("rotation")
@@ -33,15 +28,14 @@ export const isType = (...types: (ObjectType | ParticleType)[]) => obj => types.
 export const isProjectile = isType(ObjectType.Projectile)
 export const isPlayer = isType(ObjectType.Player)
 export const isAsteroid = isType(ObjectType.Asteroid)
-export const isOwner = ownerType => obj => obj.owner === ownerType
-export const isOwnedByPlayer = isOwner(ObjectType.Player)
+const isOwner = ownerType => obj => obj.owner === ownerType
+const isOwnedByPlayer = isOwner(ObjectType.Player)
 export const isPlayerProjectile = and(isProjectile, isOwnedByPlayer)
 export const isAsteroidWithNoDurability = and(durabilityLT1, isAsteroid)
 export const isRotatingCounterclockwise = object => object.angularVelocity < 0
 export const isRotatingClockwise = object => object.angularVelocity > 0
 export const isAccelerating = object => object.acceleration > 0
 export const isOre = object => object.type === ObjectType.Ore
-export const isOrePlayerOrProjectile = [isPlayer, isProjectile, isOre].reduce(or)
 export const isCloneTrigger = isType(ObjectType.CloneTrigger)
 export const isCargo = isType(ObjectType.Cargo)
 export const isDrone = isType(ObjectType.Drone)

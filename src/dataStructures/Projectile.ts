@@ -29,7 +29,7 @@ const projectileTemplate: Projectile = {
   delete: false
 }
 
-export const Projectile = (settings: projectileSettings): Projectile => {
+const Projectile = (settings: projectileSettings): Projectile => {
   const velocity = Vector.fromDegreesAndMagnitude(settings.rotation, PROJECTILE_SPEED)
   return {
     ...projectileTemplate,

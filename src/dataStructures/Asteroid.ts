@@ -35,7 +35,7 @@ export const spawnableAsteroid = (location, velocity): Asteroid => {
   }
 }
 
-export const create = size => (location, velocity, durability = DURABILITY, sizeToRadius = SIZE_TO_RADIUS): Asteroid => {
+const create = size => (location, velocity, durability = DURABILITY, sizeToRadius = SIZE_TO_RADIUS): Asteroid => {
   return {
     ...GenericFactory(location, velocity, sizeToRadius[size], ObjectType.Asteroid),
     hasCollidedWith: [],

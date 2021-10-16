@@ -1,7 +1,5 @@
 import Vector from "../../dataStructures/vector/Vector.js"
 import { context } from "../../engine/canvas.js"
-import { flip } from "../../hof/flip.js"
-import { partial } from "../../hof/partial.js"
 import { rotate } from "../library/rotate.js"
 
 
@@ -24,5 +22,3 @@ const ngon = sides => ([location, object]) => {
 }
 
 export default ngon
-
-export const staticNgon = (sides, settings) => partial(flip(ngon(sides)), settings)

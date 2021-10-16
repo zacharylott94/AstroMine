@@ -6,5 +6,3 @@ export const updateScoreSetup = objectList => {
     addScoreSetup(objectList)
   ].reduce(compose)
 }
-
-export default updateScoreSetup

@@ -26,4 +26,3 @@ const Drone = (location, velocity, rotation = 0, angularVelocity = 0): Drone => 
 
 
 export const randomRotationDrone = (location, velocity) => Drone(location, velocity, randomInteger(360), randomChoice(-2, 2, 1.5, -1.5))
-export default Drone

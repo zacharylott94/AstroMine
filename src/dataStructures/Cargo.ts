@@ -16,7 +16,7 @@ const CargoTemplate: Cargo = {
   durability: 1
 }
 
-export const Cargo = (location, velocity, count, rotation = 0, angularVelocity = 0): Cargo => {
+const Cargo = (location, velocity, count, rotation = 0, angularVelocity = 0): Cargo => {
   return {
     ...CargoTemplate,
     position: [location],
