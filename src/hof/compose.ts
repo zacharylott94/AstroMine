@@ -1,1 +1,1 @@
-export default (func1, func2) => (...args) => (func2(func1(...args)))
+export default <A, B, C>(func1: (A: A) => B, func2: (B: B) => C) => (arg: A) => (func2(func1(arg)))
