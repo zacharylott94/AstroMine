@@ -12,13 +12,10 @@ interface IMoveable extends IVelocity, IPosition { }
 
 interface IRotatableGeneric extends IRotation, IGeneric { }
 
-interface IDurability { durability: number }
-
-
 interface IGeneric extends IMoveable, ITypeable, IDeleteable, IRadius { }
 
 type RenderFunction<T> = (tuple: [TVector, T]) => void
-type Condition = (...args) => boolean
+type Condition<T> = (arg: T) => boolean
 type Monoid<T> = (thing: T) => T
 
 type TVector = [number, number]
@@ -33,7 +30,6 @@ type Drone = IGeneric & ICollidable & IRotatableGeneric
 type Cargo = IGeneric & ICollidable & IRotatableGeneric & { count: number } & IDurability
 type GameObject = Player | Projectile | Asteroid | Ore | Drone | Cargo
 type Trigger = ICollidable & ITypeable
-type X = IPosition & ITimeToLive & ITypeable & ICollidable
 
 type Degrees = number
 

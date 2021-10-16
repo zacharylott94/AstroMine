@@ -7,13 +7,13 @@ import and from "./and.js"
 const durabilityLT1 = obj => obj?.durability < 1
 export const hasCollided = obj => obj.hasCollidedWith.length > 0
 export const hasCollidedWith = objectType => obj => obj.hasCollidedWith.filter(type => type === objectType).length > 0
-const hasProperties = (...props: string[]) => obj => props.reduce((l, r) => l && r in obj, true)
+const hasProperties = (...props: string[]) => (obj: any) => props.reduce((l, r) => l && r in obj, true)
 export const isMoveable = hasProperties("velocity", "position")
 export const hasDurability = hasProperties("durability")
 export const isRotatable = hasProperties("rotation")
 export const hasTTL = hasProperties("ttl")
 export const hasAcceleration = hasProperties("acceleration")
-export const hasClones = and(hasProperties("position"), obj => obj.position.length > 1)
+export const hasClones = and(hasProperties("position"), (obj: any) => obj.position.length > 1)
 export const isOutsideofPlay = obj => Vector.magnitude(Vector.subtract(
   Position.real(obj.position),
   Vector.CENTER_SCREEN
