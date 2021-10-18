@@ -1,5 +1,6 @@
-import compose from "../../hof/compose.js"
-import { addScoreSetup } from "../addScore.js"
+import compose from "../../hof/compose"
+import { addScoreSetup } from "../addScore"
+
 
 export const updateScoreSetup = objectList => {
   return [

@@ -1,5 +1,5 @@
-import Vector from "../dataStructures/vector/Vector.js"
-import { randomInteger } from "../libraries/random.js"
+import Vector from "../dataStructures/vector/Vector"
+import { randomInteger } from "../libraries/random"
 
 
 export function generateSpawnLocation(): TVector {

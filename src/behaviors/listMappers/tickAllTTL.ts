@@ -1,7 +1,8 @@
-import { conditional } from "../../hof/conditional.js"
-import { hasTTL } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import tickTTL from "../objectMappers/tickTTL.js"
+import { conditional } from "../../hof/conditional"
+import { hasTTL } from "../../hof/conditions"
+import mapper from "../../hof/mapper"
+import tickTTL from "../objectMappers/tickTTL"
+
 
 
 const tickAllTTL = mapper(conditional(hasTTL, tickTTL))

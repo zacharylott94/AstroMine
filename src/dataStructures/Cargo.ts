@@ -1,6 +1,6 @@
-import { isDrone, isProjectile } from "../hof/conditions.js"
-import or from "../hof/or.js"
-import { randomChoice, randomInteger } from "../libraries/random.js"
+import { isDrone, isProjectile } from "../hof/conditions"
+import or from "../hof/or"
+import { randomChoice, randomInteger } from "../libraries/random"
 
 const CargoTemplate: Cargo = {
   count: 0,

@@ -1,5 +1,6 @@
-import and from "../hof/and.js"
-import { hasCollidedWith, isCargo, isOre } from "../hof/conditions.js"
+import and from "../hof/and"
+import { hasCollidedWith, isCargo, isOre } from "../hof/conditions"
+
 
 const add = (n, m): number => n + m
 const getCargoValue = (cargos: Cargo[]): number => {

@@ -1,5 +1,6 @@
-import compose from "../../hof/compose.js"
-import { addOreSetup } from "../addOre.js"
+import compose from "../../hof/compose"
+import { addOreSetup } from "../addOre"
+
 
 export const updateOreSetup = objectList => {
   return [

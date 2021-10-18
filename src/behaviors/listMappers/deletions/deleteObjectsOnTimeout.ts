@@ -1,9 +1,10 @@
-import and from "../../../hof/and.js"
-import { conditional } from "../../../hof/conditional.js"
-import { hasTimedOut, isProjectile } from "../../../hof/conditions.js"
-import mapper from "../../../hof/mapper.js"
-import or from "../../../hof/or.js"
-import flagForDeletion from "../../objectMappers/flagForDeletion.js"
+import and from "../../../hof/and"
+import { conditional } from "../../../hof/conditional"
+import { isProjectile, hasTimedOut } from "../../../hof/conditions"
+import mapper from "../../../hof/mapper"
+import or from "../../../hof/or"
+import flagForDeletion from "../../objectMappers/flagForDeletion"
+
 
 const objects = [
   isProjectile,

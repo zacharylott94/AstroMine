@@ -1,12 +1,13 @@
-import { randomRotationOre } from "../../dataStructures/Ore.js"
-import Position from "../../dataStructures/position/Position.js"
-import Vector from "../../dataStructures/vector/Vector.js"
-import and from "../../hof/and.js"
-import compose from "../../hof/compose.js"
-import { conditional } from "../../hof/conditional.js"
-import { hasCollidedWith, isCargo } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import { randomInteger } from "../../libraries/random.js"
+import { randomRotationOre } from "../../dataStructures/Ore"
+import Position from "../../dataStructures/position/Position"
+import Vector from "../../dataStructures/vector/Vector"
+import and from "../../hof/and"
+import compose from "../../hof/compose"
+import { conditional } from "../../hof/conditional"
+import { isCargo, hasCollidedWith } from "../../hof/conditions"
+import mapper from "../../hof/mapper"
+import { randomInteger } from "../../libraries/random"
+
 
 const dropOneOre = cargo => randomRotationOre(Position.real(cargo.position),
   [

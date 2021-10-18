@@ -1,11 +1,11 @@
-import { conditional } from "../hof/conditional.js"
-import mapper from "../hof/mapper.js"
-import { isType } from "../hof/conditions.js"
-import compose from "../hof/compose.js"
-import { partial } from "../hof/partial.js"
-import passthrough from "../hof/passthrough.js"
-import { asteroidRenderer, cargoRenderer, droneRenderer, oreRenderer, playerRenderer, projectileRenderer } from "./objectRenderers.js"
-import { dotParticleRenderer, XParticleRenderer } from "./particleRenderers.js"
+import { conditional } from "../hof/conditional"
+import mapper from "../hof/mapper"
+import { isType } from "../hof/conditions"
+import compose from "../hof/compose"
+import { partial } from "../hof/partial"
+import passthrough from "../hof/passthrough"
+import { asteroidRenderer, cargoRenderer, droneRenderer, oreRenderer, playerRenderer, projectileRenderer } from "./objectRenderers"
+import { dotParticleRenderer, XParticleRenderer } from "./particleRenderers"
 
 const particlesToPositionTypeTuples = (time, particles) => particles.map(particle => particle(time))
 export const particleRenderer = time => (particles: Particle[]) => {

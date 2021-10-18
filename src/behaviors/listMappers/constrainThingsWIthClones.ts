@@ -1,6 +1,7 @@
-import { conditional } from "../../hof/conditional.js"
-import { hasClones } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import constrainObject from "../objectMappers/constrainObject.js"
+import { conditional } from "../../hof/conditional"
+import { hasClones } from "../../hof/conditions"
+import mapper from "../../hof/mapper"
+import constrainObject from "../objectMappers/constrainObject"
+
 
 export default mapper(conditional(hasClones, constrainObject))

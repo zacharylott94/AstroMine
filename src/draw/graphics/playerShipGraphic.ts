@@ -1,5 +1,5 @@
-import { context } from "../../engine/canvas.js"
-import { rotate } from "../library/rotate.js"
+import { context } from "../../engine/canvas"
+import { rotate } from "../library/rotate"
 
 const playerShipGraphic: RenderFunction<IRotatableRenderable> = ([location, object]) => {
     const [x, y] = location

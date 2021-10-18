@@ -1,7 +1,8 @@
-import { conditional } from "../../hof/conditional.js"
-import { isMoveable } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import move from "../objectMappers/move.js"
+import { conditional } from "../../hof/conditional"
+import { isMoveable } from "../../hof/conditions"
+import mapper from "../../hof/mapper"
+import move from "../objectMappers/move"
+
 
 
 const moveAllMoveable = mapper(conditional(isMoveable, move))

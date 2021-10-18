@@ -1,5 +1,5 @@
-import Vector from "./vector/Vector.js"
-import wrapVector from "./vector/wrapVector.js"
+import Vector from "./vector/Vector"
+import wrapVector from "./vector/wrapVector"
 
 type acceleration = (time: number) => TVector
 

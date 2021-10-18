@@ -1,7 +1,7 @@
-import Vector from "../vector/Vector.js"
-import wrapVector from "../vector/wrapVector.js"
-import addVector from "./addVector.js"
-import specificPositionVector from "./specificPositionVector.js"
+import Vector from "../vector/Vector"
+import wrapVector from "../vector/wrapVector"
+import addVector from "./addVector"
+import specificPositionVector from "./specificPositionVector"
 
 
 export default (offsets, realPositionIndex) => (position: TPosition): TPosition => {

@@ -1,5 +1,5 @@
-import { spawnableAsteroid } from "../dataStructures/Asteroid.js"
-import { generateRandomVelocity, generateSpawnLocation } from "./spawnHelperFunctions.js"
+import { spawnableAsteroid } from "../dataStructures/Asteroid"
+import { generateRandomVelocity, generateSpawnLocation } from "./spawnHelperFunctions"
 
 const difficultyRatio = 1 / 18
 const AsteroidDifficultyVelocityRatio = 1 / 36

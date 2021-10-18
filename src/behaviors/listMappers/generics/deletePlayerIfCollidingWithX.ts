@@ -1,4 +1,5 @@
-import { partial } from "../../../hof/partial.js"
-import deleteXIfCollidingWithY from "./deleteXIfCollidingWithY.js"
+import { partial } from "../../../hof/partial"
+import deleteXIfCollidingWithY from "./deleteXIfCollidingWithY"
+
 
 export default partial(deleteXIfCollidingWithY, ObjectType.Player)

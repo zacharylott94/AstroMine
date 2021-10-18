@@ -1,13 +1,13 @@
-import { nullParticle, Particle as particleSetup } from "../dataStructures/Particle.js"
-import Position from "../dataStructures/position/Position.js"
-import Vector from "../dataStructures/vector/Vector.js"
-import compose from "../hof/compose.js"
-import { randomAngle, randomInteger, randomNumber } from "../libraries/random.js"
-import { hasCollided, isAccelerating, isDroneThatHasCollided, isPlayer, isProjectile, isRotatingClockwise, isRotatingCounterclockwise } from "../hof/conditions.js"
-import and from "../hof/and.js"
-import array from "../libraries/array.js"
-import mod from "../libraries/mod.js"
-import { wavy, zeroAcceleration } from "./accelerationFunctions.js"
+import { nullParticle, Particle as particleSetup } from "../dataStructures/Particle"
+import Position from "../dataStructures/position/Position"
+import Vector from "../dataStructures/vector/Vector"
+import compose from "../hof/compose"
+import { randomAngle, randomInteger, randomNumber } from "../libraries/random"
+import { hasCollided, isAccelerating, isDroneThatHasCollided, isPlayer, isProjectile, isRotatingClockwise, isRotatingCounterclockwise } from "../hof/conditions"
+import and from "../hof/and"
+import array from "../libraries/array"
+import mod from "../libraries/mod"
+import { wavy, zeroAcceleration } from "./accelerationFunctions"
 
 type ParticleGeneratorSettings = {
   number: number,

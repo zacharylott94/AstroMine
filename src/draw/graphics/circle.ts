@@ -1,4 +1,4 @@
-import { context } from "../../engine/canvas.js"
+import { context } from "../../engine/canvas"
 
 export const circle: RenderFunction<ICircleRenderable> = ([[x, y], object]) => {
   context.moveTo(x, y)

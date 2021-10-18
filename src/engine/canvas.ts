@@ -1,4 +1,4 @@
-import Vector from "../dataStructures/vector/Vector.js"
+import Vector from "../dataStructures/vector/Vector"
 const element: any = document.getElementById("canvas")
 element.width = Vector.GAME_DIMENSIONS[0]
 element.height = Vector.GAME_DIMENSIONS[1]

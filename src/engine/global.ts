@@ -1,6 +1,6 @@
-import { stator } from "../hof/stator.js"
-import Player from "../dataStructures/Player.js"
-import wrapTrigger from "../dataStructures/wrapTrigger.js"
+import { stator } from "../hof/stator"
+import Player from "../dataStructures/Player"
+import wrapTrigger from "../dataStructures/wrapTrigger"
 
 export const initGameState = (): GameState => ({
   timer: stator(0),

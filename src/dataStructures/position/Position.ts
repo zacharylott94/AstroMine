@@ -1,10 +1,10 @@
-import constrain from "./constrain.js"
-import Vector from "../vector/Vector.js"
-import closestTo from "./closestTo.js"
-import specificPositionVector from "./specificPositionVector.js"
-import addVector from "./addVector.js"
-import fromComponents from "./fromComponents.js"
-import { partial } from "../../hof/partial.js"
+import constrain from "./constrain"
+import Vector from "../vector/Vector"
+import closestTo from "./closestTo"
+import specificPositionVector from "./specificPositionVector"
+import addVector from "./addVector"
+import fromComponents from "./fromComponents"
+import { partial } from "../../hof/partial"
 
 
 enum EPosition {

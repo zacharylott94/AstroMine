@@ -1,5 +1,6 @@
-import { conditional } from "../../hof/conditional.js"
-import { hasDurability } from "../../hof/conditions.js"
-import tickDurability from "../objectMappers/tickDurability.js"
+import { conditional } from "../../hof/conditional"
+import { hasDurability } from "../../hof/conditions"
+import tickDurability from "../objectMappers/tickDurability"
+
 
 export default conditional(hasDurability, tickDurability)

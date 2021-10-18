@@ -1,8 +1,9 @@
-import { PlayerProjectile } from "../../dataStructures/Projectile.js"
-import and from "../../hof/and.js"
-import { conditional } from "../../hof/conditional.js"
-import { hasPlayer, isPlayerProjectile } from "../../hof/conditions.js"
-import getPlayer from "../listReducers/getPlayer.js"
+import { PlayerProjectile } from "../../dataStructures/Projectile"
+import and from "../../hof/and"
+import { conditional } from "../../hof/conditional"
+import { isPlayerProjectile, isPlayer } from "../../hof/conditions"
+import getPlayer from "../listReducers/getPlayer"
+
 
 function fireProjectile(objectList) {
   const player = getPlayer(objectList)
@@ -11,4 +12,5 @@ function fireProjectile(objectList) {
 
 const lessThanThreeProjectiles = objectList => objectList.filter(isPlayerProjectile).length < 3
 
+const hasPlayer = list => list.filter(isPlayer).length > 0
 export const fireProjectileWhenReady = conditional(and(lessThanThreeProjectiles, hasPlayer), fireProjectile)

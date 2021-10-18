@@ -1,5 +1,5 @@
-import Vector from "../dataStructures/vector/Vector.js"
-import { randomNumber } from "../libraries/random.js"
+import Vector from "../dataStructures/vector/Vector"
+import { randomNumber } from "../libraries/random"
 
 export const wavy = ({ offset = () => randomNumber(Math.PI * 2), amplitude = 5, period = 10, waveLine }) => {
   const accelerationBuilder = () => {

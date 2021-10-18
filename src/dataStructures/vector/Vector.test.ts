@@ -1,4 +1,4 @@
-import Vector from "./Vector.js"
+import Vector from "./Vector"
 describe('Static Class Vector', () => {
   it('can create vectors from x and y values', () => {
     expect(Vector.fromComponents(10, 10)).toStrictEqual([10, 10])

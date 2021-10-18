@@ -1,4 +1,4 @@
-import { context } from "../../engine/canvas.js"
+import { context } from "../../engine/canvas"
 
 export const rotate = ([x, y]: TVector, rotation: Degrees) => {
   context.translate(x, y)

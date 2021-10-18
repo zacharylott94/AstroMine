@@ -1,8 +1,8 @@
 
-import { isAsteroid, isCargo, isDrone } from "../hof/conditions.js"
-import or from "../hof/or.js"
-import Position from "./position/Position.js"
-import Vector from "./vector/Vector.js"
+import { isAsteroid, isCargo, isDrone } from "../hof/conditions"
+import or from "../hof/or"
+import Position from "./position/Position"
+import Vector from "./vector/Vector"
 
 const PROJECTILE_SPEED = 4
 const PROJECTILE_TTL = 200

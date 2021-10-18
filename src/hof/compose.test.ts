@@ -1,4 +1,4 @@
-import compose from "./compose.js"
+import compose from "./compose"
 describe('compose', () => {
   it('takes two functions and composes them together', () => {
     const func1 = x => x + 1

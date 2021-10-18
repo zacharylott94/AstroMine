@@ -1,4 +1,4 @@
-import Vector from "../dataStructures/vector/Vector.js"
+import Vector from "../dataStructures/vector/Vector"
 
 export const randomAngle = (baseAngle: Degrees, spread: Degrees) => {
   let randomSpreadInDegrees = (Math.random() - .5) * spread

@@ -1,7 +1,7 @@
-import { isDrone, isPlayer } from "../hof/conditions.js"
-import or from "../hof/or.js"
-import { randomChoice, randomInteger } from "../libraries/random.js"
-import GenericFactory from "./genericObject.js"
+import { isDrone, isPlayer } from "../hof/conditions"
+import or from "../hof/or"
+import { randomChoice, randomInteger } from "../libraries/random"
+import GenericFactory from "./genericObject"
 const radius = 3
 
 const Ore = (location, velocity, rotation = 0, angularVelocity = 0): Ore => ({

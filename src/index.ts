@@ -1,16 +1,17 @@
-import AsteroidSpawnSystem from "./engine/asteroidSpawner.js"
-import { initGameState } from "./engine/global.js"
-import { setupInterface } from "./engine/humanInterface.js"
-import Controller from "./engine/keyboardController.js"
-import { updateScoreSetup } from "./behaviors/gameState Updaters/updateScore.js"
-import particleListUpdaterSetup from "./behaviors/gameState Updaters/updateParticleList.js"
-import { updateObjectList } from "./behaviors/gameState Updaters/updateObjectList.js"
-import { gameRenderSetup } from "./draw/setupFunctions.ts/gameRenderSetup.js"
-import { updateOreSetup } from "./behaviors/gameState Updaters/updateOre.js"
-import droneSpawner from "./engine/droneSpawner.js"
-import array from "./libraries/array.js"
-import text from "./draw/graphics/text.js"
-import { clear } from "./draw/library/clear.js"
+import { updateObjectList } from "./behaviors/gameState Updaters/updateObjectList"
+import { updateOreSetup } from "./behaviors/gameState Updaters/updateOre"
+import particleListUpdaterSetup from "./behaviors/gameState Updaters/updateParticleList"
+import { updateScoreSetup } from "./behaviors/gameState Updaters/updateScore"
+import text from "./draw/graphics/text"
+import { clear } from "./draw/library/clear"
+import { gameRenderSetup } from "./draw/setupFunctions.ts/gameRenderSetup"
+import asteroidSpawner from "./engine/asteroidSpawner"
+import droneSpawner from "./engine/droneSpawner"
+import { initGameState } from "./engine/global"
+import { setupInterface } from "./engine/humanInterface"
+import Controller from "./engine/keyboardController"
+import array from "./libraries/array"
+
 
 const GameState = initGameState()
 
@@ -49,7 +50,7 @@ const physicsLoop = () => {
 
 
   if (GameState.timer() % 60 === 0) {
-    GameState.objectList(AsteroidSpawnSystem(GameState.score()))
+    GameState.objectList(asteroidSpawner(GameState.score()))
   }
 
   if (GameState.timer() % (60 * 60) === 600) {

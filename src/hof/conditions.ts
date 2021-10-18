@@ -1,10 +1,9 @@
-import Position from "../dataStructures/position/Position.js"
-import Vector from "../dataStructures/vector/Vector.js"
-import and from "./and.js"
+import Position from "../dataStructures/position/Position"
+import Vector from "../dataStructures/vector/Vector"
+import and from "./and"
 
 //property checks
 
-const durabilityLT1 = obj => obj?.durability < 1
 export const hasCollided = obj => obj.hasCollidedWith.length > 0
 export const hasCollidedWith = objectType => obj => obj.hasCollidedWith.filter(type => type === objectType).length > 0
 const hasProperties = (...props: string[]) => (obj: any) => props.reduce((l, r) => l && r in obj, true)
@@ -31,6 +30,7 @@ export const isAsteroid = isType(ObjectType.Asteroid)
 const isOwner = ownerType => obj => obj.owner === ownerType
 const isOwnedByPlayer = isOwner(ObjectType.Player)
 export const isPlayerProjectile = and(isProjectile, isOwnedByPlayer)
+const durabilityLT1 = obj => obj?.durability < 1
 export const isAsteroidWithNoDurability = and(durabilityLT1, isAsteroid)
 export const isRotatingCounterclockwise = object => object.angularVelocity < 0
 export const isRotatingClockwise = object => object.angularVelocity > 0
@@ -44,7 +44,3 @@ export const isDroneThatHasCollided = [
   hasCollided,
   obj => obj.delete
 ].reduce(and)
-
-
-//list property checks
-export const hasPlayer = list => list.filter(isPlayer).length > 0

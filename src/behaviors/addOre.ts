@@ -1,5 +1,6 @@
-import getPlayer from "./listReducers/getPlayer.js"
-import { countCollisions } from "./objectReducers.ts/countCollisions.js"
+import getPlayer from "./listReducers/getPlayer"
+import { countCollisions } from "./objectReducers.ts/countCollisions"
+
 
 export const addOreSetup = (objectList: Stator<GameObject[]>) => (oreCount: number): number => {
   const player = getPlayer(objectList())

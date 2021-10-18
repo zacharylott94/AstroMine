@@ -1,6 +1,7 @@
-import { particleGeneratorSetup } from "../../engine/ParticleEmitters.js"
-import compose from "../../hof/compose.js"
-import array from "../../libraries/array.js"
+import { particleGeneratorSetup } from "../../engine/ParticleEmitters"
+import compose from "../../hof/compose"
+import array from "../../libraries/array"
+
 
 const isNotTimedOut = timer => particle => {
   if (particle(timer())[0] === Number.POSITIVE_INFINITY) return false

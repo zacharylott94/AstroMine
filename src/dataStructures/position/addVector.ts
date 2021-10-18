@@ -1,4 +1,4 @@
-import Vector from "../vector/Vector.js"
+import Vector from "../vector/Vector"
 
 export default function addVector(position: TPosition, vector: TVector): TPosition {
   const newPosition: TPosition = [

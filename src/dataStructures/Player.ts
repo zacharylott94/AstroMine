@@ -1,7 +1,7 @@
-import { isAsteroid, isDrone, isOre } from "../hof/conditions.js"
-import or from "../hof/or.js"
-import GenericFactory from "./genericObject.js"
-import Vector from "./vector/Vector.js"
+import { isAsteroid, isDrone, isOre } from "../hof/conditions"
+import or from "../hof/or"
+import GenericFactory from "./genericObject"
+import Vector from "./vector/Vector"
 
 const PLAYER_RADIUS = 6
 const THRUST = .02

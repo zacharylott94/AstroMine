@@ -1,6 +1,6 @@
-import Vector from "../../dataStructures/vector/Vector.js"
-import { context } from "../../engine/canvas.js"
-import { rotate } from "../library/rotate.js"
+import Vector from "../../dataStructures/vector/Vector"
+import { context } from "../../engine/canvas"
+import { rotate } from "../library/rotate"
 
 
 const ngon = sides => ([location, object]) => {

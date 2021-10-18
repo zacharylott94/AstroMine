@@ -1,6 +1,7 @@
-import { conditional } from "../../hof/conditional.js"
-import { hasAcceleration } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import accelerate from "../objectMappers/accelerate.js"
+import { conditional } from "../../hof/conditional"
+import { hasAcceleration } from "../../hof/conditions"
+import mapper from "../../hof/mapper"
+import accelerate from "../objectMappers/accelerate"
+
 
 export default mapper(conditional(hasAcceleration, accelerate))

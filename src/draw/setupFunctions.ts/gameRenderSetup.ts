@@ -1,11 +1,11 @@
-import { gameObjectRenderer, particleRenderer } from "../composedRenderingFunctions.js"
-import drawText from "../graphics/text.js"
-import fif from "../../hof/fif.js"
-import text from "../graphics/text.js"
-import Vector from "../../dataStructures/vector/Vector.js"
+import { gameObjectRenderer, particleRenderer } from "../composedRenderingFunctions"
+import drawText from "../graphics/text"
+import fif from "../../hof/fif"
+import text from "../graphics/text"
+import Vector from "../../dataStructures/vector/Vector"
 
 export const gameRenderSetup = (gameState) => {
-  return fif(gameState.paused,
+  return fif<void, void, void>(gameState.paused,
     () => text(() => Vector.CENTER_SCREEN, () => 'PAUSED', { size: '2em' }),
     () => {
       gameObjectRenderer(gameState.objectList())

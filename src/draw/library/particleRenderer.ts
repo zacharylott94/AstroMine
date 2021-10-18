@@ -1,6 +1,6 @@
-import compose from "../../hof/compose.js"
-import { extractPosition } from "../../hof/extract.js"
-import passthrough from "../../hof/passthrough.js"
-import { canvasContextScope } from "./canvasContextScope.js"
+import compose from "../../hof/compose"
+import { extractPosition } from "../../hof/extract"
+import passthrough from "../../hof/passthrough"
+import { canvasContextScope } from "./canvasContextScope"
 
 export default drawFunction => passthrough(compose(extractPosition, canvasContextScope(drawFunction)))

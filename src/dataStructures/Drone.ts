@@ -1,5 +1,5 @@
-import { isProjectile } from "../hof/conditions.js"
-import { randomChoice, randomInteger } from "../libraries/random.js"
+import { isProjectile } from "../hof/conditions"
+import { randomChoice, randomInteger } from "../libraries/random"
 
 
 const droneTemplate: Drone = {

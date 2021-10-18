@@ -1,8 +1,9 @@
-import and from "../../hof/and.js"
-import { conditional } from "../../hof/conditional.js"
-import { hasClones, hasTimedOut, isOre } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import revokeClones from "../objectMappers/revokeClones.js"
+import and from "../../hof/and"
+import { conditional } from "../../hof/conditional"
+import { isOre, hasTimedOut, hasClones } from "../../hof/conditions"
+import mapper from "../../hof/mapper"
+import revokeClones from "../objectMappers/revokeClones"
+
 
 export default mapper(
   conditional(

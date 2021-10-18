@@ -1,11 +1,11 @@
-import { isPlayerProjectile, isCloneTrigger } from "../hof/conditions.js"
-import { partial } from "../hof/partial.js"
-import { randomDirectionVector } from "../libraries/random.js"
-import GenericFactory from "./genericObject.js"
-import Position from "./position/Position.js"
-import Vector from "./vector/Vector.js"
-import { randomRotationOre } from "./Ore.js"
-import or from "../hof/or.js"
+import { isPlayerProjectile, isCloneTrigger } from "../hof/conditions"
+import { partial } from "../hof/partial"
+import { randomDirectionVector } from "../libraries/random"
+import GenericFactory from "./genericObject"
+import Position from "./position/Position"
+import Vector from "./vector/Vector"
+import { randomRotationOre } from "./Ore"
+import or from "../hof/or"
 
 const SIZE_TO_RADIUS =
   [

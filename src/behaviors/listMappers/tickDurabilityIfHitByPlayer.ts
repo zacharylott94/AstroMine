@@ -1,6 +1,7 @@
-import { conditional } from "../../hof/conditional.js"
-import { hasCollidedWith } from "../../hof/conditions.js"
-import mapper from "../../hof/mapper.js"
-import tickIfDurability from "./tickIfDurability.js"
+import { conditional } from "../../hof/conditional"
+import { hasCollidedWith } from "../../hof/conditions"
+import mapper from "../../hof/mapper"
+import tickIfDurability from "./tickIfDurability"
+
 
 export default mapper(conditional(hasCollidedWith(ObjectType.Projectile), tickIfDurability))

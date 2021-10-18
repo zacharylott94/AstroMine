@@ -1,7 +1,7 @@
-import Position from "../dataStructures/position/Position.js"
-import Vector from "../dataStructures/vector/Vector.js"
-import mapper from "../hof/mapper.js"
-import reduceMap from "../hof/reduceMap.js"
+import Position from "../dataStructures/position/Position"
+import Vector from "../dataStructures/vector/Vector"
+import mapper from "../hof/mapper"
+import reduceMap from "../hof/reduceMap"
 
 export function checkCollision(object: ICollidable & ITypeable, otherObject: ICollidable & ITypeable): ICollidable & ITypeable {
   if (object === otherObject) return object

@@ -1,4 +1,4 @@
-import mod from "../../libraries/mod.js"
+import mod from "../../libraries/mod"
 
 export default (wrapper, vector): TVector => {
   return [

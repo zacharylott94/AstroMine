@@ -1,5 +1,5 @@
 import motor from "./motor"
-import { stator } from "./stator.js"
+import { stator } from "./stator"
 describe('motor', () => {
   it('Binds a stator to a function', () => {
     const inc = x => x + 1

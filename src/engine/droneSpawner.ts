@@ -1,5 +1,5 @@
-import { randomRotationDrone } from "../dataStructures/Drone.js"
-import { generateRandomVelocity, generateSpawnLocation } from "./spawnHelperFunctions.js"
+import { randomRotationDrone } from "../dataStructures/Drone"
+import { generateRandomVelocity, generateSpawnLocation } from "./spawnHelperFunctions"
 
 const DroneDifficultyVelocityRatio = 1 / 64
 

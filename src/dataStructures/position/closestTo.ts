@@ -1,4 +1,4 @@
-import Vector from "../vector/Vector.js"
+import Vector from "../vector/Vector"
 
 type Distance = number
 type Index = number

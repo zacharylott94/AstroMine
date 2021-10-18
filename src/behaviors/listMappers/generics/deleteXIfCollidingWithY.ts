@@ -1,8 +1,9 @@
-import and from "../../../hof/and.js"
-import { conditional } from "../../../hof/conditional.js"
-import { hasCollidedWith, isType } from "../../../hof/conditions.js"
-import mapper from "../../../hof/mapper.js"
-import flagForDeletion from "../../objectMappers/flagForDeletion.js"
+import and from "../../../hof/and"
+import { conditional } from "../../../hof/conditional"
+import { isType, hasCollidedWith } from "../../../hof/conditions"
+import mapper from "../../../hof/mapper"
+import flagForDeletion from "../../objectMappers/flagForDeletion"
+
 
 export default (x: ObjectType, y: ObjectType) => mapper(
   conditional(
