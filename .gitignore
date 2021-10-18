@@ -6,3 +6,4 @@ build
 oldSrc
 coverage
 package-lock.json
+dist
