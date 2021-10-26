@@ -1,1 +1,1 @@
-export default (stator, func) => () => stator(func)
+export default <T>(stator: Stator<T>, func: Endofunctor<T>) => () => stator(func)

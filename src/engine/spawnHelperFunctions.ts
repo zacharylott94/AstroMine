@@ -9,7 +9,7 @@ export function generateSpawnLocation(): TVector {
 
 }
 
-export function generateRandomVelocity(velocityScale = 1, position): TVector {
+export const generateRandomVelocity = velocityRatio => (velocityScale = 1, position): TVector => {
   const minVelocity = .5
   const targetPoint = Vector.add(
     Vector.fromDegreesAndMagnitude(randomInteger(360), 100),
@@ -17,5 +17,5 @@ export function generateRandomVelocity(velocityScale = 1, position): TVector {
   const targetDirection = Vector.normalize(
     Vector.subtract(targetPoint, position)
   )
-  return Vector.scale(targetDirection, Math.max(minVelocity, Math.random() * velocityScale))
+  return Vector.scale(targetDirection, Math.max(minVelocity, Math.random() * velocityScale * velocityRatio))
 }

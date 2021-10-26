@@ -16,7 +16,8 @@ interface IGeneric extends IMoveable, ITypeable, IDeleteable, IRadius { }
 
 type RenderFunction<T> = (tuple: [TVector, T]) => void
 type Condition<T> = (arg: T) => boolean
-type Monoid<T> = (thing: T) => T
+type Functor<A, B> = (A: A) => B
+type Endofunctor<A> = Functor<A, A>
 
 type TVector = [number, number]
 type TPosition = Array<TVector>
@@ -33,7 +34,7 @@ type Trigger = ICollidable & ITypeable
 
 type Degrees = number
 
-type Stator<T> = (monoid?: Monoid<T>) => T
+type Stator<T> = (endoFunctor?: Endofunctor<T>) => T
 
 interface HumanInterface {
   fire: Function,

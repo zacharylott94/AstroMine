@@ -1,13 +1,12 @@
 import Vector from "../dataStructures/vector/Vector"
 import { randomNumber } from "../libraries/random"
 
-export const wavy = ({ offset = () => randomNumber(Math.PI * 2), amplitude = 5, period = 10, waveLine }) => {
+export const wavy = ({ offset = () => randomNumber(Math.PI * 2), amplitude = 5, period = 10, yAxis }) => {
   const accelerationBuilder = () => {
-    const fixedWaveline = waveLine()
     const fixedOffset = offset()
     const acceleration = time => {
       return Vector.fromDegreesAndMagnitude(
-        fixedWaveline,
+        yAxis,
         Math.sin((time / period) + fixedOffset) * amplitude / (time * time)
       )
     }

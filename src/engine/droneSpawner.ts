@@ -1,17 +1,9 @@
 import { randomRotationDrone } from "../dataStructures/Drone"
+import { isDrone } from "../hof/conditions"
+import Spawner from "./spawner"
 import { generateRandomVelocity, generateSpawnLocation } from "./spawnHelperFunctions"
 
 const DroneDifficultyVelocityRatio = 1 / 64
+const needDrone = (_difficulty, count) => count < 1
 
-
-const DroneSpawner = (locationGenerator, velocityGenerator) => difficulty => (objectList: GameObject[]): GameObject[] => {
-  const drones = objectList.filter(obj => obj.type === ObjectType.Drone)
-  if (drones.length < 1) {
-    const location = locationGenerator()
-    const velocity = velocityGenerator(difficulty * DroneDifficultyVelocityRatio, location)
-    return objectList.concat(randomRotationDrone(location, velocity))
-  }
-  return objectList
-}
-
-export default DroneSpawner(generateSpawnLocation, generateRandomVelocity)
+export default Spawner(generateSpawnLocation, generateRandomVelocity(DroneDifficultyVelocityRatio), isDrone, needDrone, randomRotationDrone)

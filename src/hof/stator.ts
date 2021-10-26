@@ -9,9 +9,9 @@
 export const stator = <T>(state: T): Stator<T> => {
   // export function stator<T>(state: T): Stator<T> {
   const wrapper = { state }
-  return function (monoid?: Monoid<T>): T {
-    if (monoid !== undefined)
-      wrapper.state = monoid(wrapper.state)
+  return function (endoFunctor?: Endofunctor<T>): T {
+    if (endoFunctor !== undefined)
+      wrapper.state = endoFunctor(wrapper.state)
     return wrapper.state
   }
 }

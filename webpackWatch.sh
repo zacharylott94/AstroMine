@@ -1,3 +1,3 @@
-while inotifywait -qe modify ./src/ > /dev/null 
+while inotifywait -qre modify ./src/
   do npx webpack; 
   done;

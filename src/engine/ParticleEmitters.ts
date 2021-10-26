@@ -45,7 +45,7 @@ const boosterSettings = (player, offset, timer) => ({
   get number() { return randomInteger(1, 0) },
   get lifetime() { return randomInteger(15, 5) },
   timer,
-  acceleration: wavy({ waveLine: () => player.rotation + 90 }),
+  acceleration: wavy({ yAxis: player.rotation + 90 }),
   type: ParticleType.Dot
 })
 
@@ -68,7 +68,7 @@ const projectileTrailGenerator = timer => (projectile) => {
     get number() { return randomInteger(1, 0) },
     get lifetime() { return randomInteger(45, 15) },
     timer,
-    acceleration: wavy({ waveLine: () => perpendicular }),
+    acceleration: wavy({ yAxis: perpendicular }),
     type: ParticleType.Dot
   })
 

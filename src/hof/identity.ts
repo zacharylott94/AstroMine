@@ -1,2 +1,2 @@
-const id = <A>(thing: A): A => thing
+const id = <A>(thing: A) => thing
 export default id
