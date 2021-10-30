@@ -4,10 +4,9 @@ import accelerateAll from "../listMappers/accelerateAll"
 import constrainThingsWIthClones from "../listMappers/constrainThingsWIthClones"
 import deleteIfCollided from "../listMappers/deletions/deleteIfCollided"
 import deleteIfOutsideOfPlay from "../listMappers/deletions/deleteIfOutsideOfPlay"
-import deleteIfPlayerCollidingWithAsteroid from "../listMappers/deletions/deleteIfPlayerCollidingWithAsteroid"
 import deleteObjectsOnTimeout from "../listMappers/deletions/deleteObjectsOnTimeout"
 import deletePickedUpCargo from "../listMappers/deletions/deletePickedUpCargo"
-import deletePlayerCollidingWithDrone from "../listMappers/deletions/deletePlayerCollidingWithDrone"
+import deletePlayerColliding from "../listMappers/deletions/deletePlayerColliding"
 import despawnOreOnTimeout from "../listMappers/despawnOreOnTimeout"
 import explodeIntoOre from "../listMappers/explodeIntoOre"
 import grantClonesOnTrigger from "../listMappers/grantClonesOnTrigger"
@@ -32,8 +31,7 @@ export const updateObjectList = [
   Collision.checkAgainstMask,
   tickDurabilityIfHitByPlayer,
   deleteIfCollided,
-  deleteIfPlayerCollidingWithAsteroid,
-  deletePlayerCollidingWithDrone,
+  deletePlayerColliding,
   shatterAsteroidsWithNoDurability,
   accelerateAll,
   deleteIfOutsideOfPlay,

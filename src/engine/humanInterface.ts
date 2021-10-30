@@ -7,6 +7,8 @@ import motor from "../hof/motor"
 import { isPlayer } from "../hof/conditions"
 import { dropCargo } from "../behaviors/listMappers/dropCargo"
 import { PLAYER_ROTATION_SPEED, playerThrust } from "../dataStructures/Player"
+import compose from "../hof/compose"
+import { pauseSound } from "./sound"
 
 export function setupInterface(gameState) {
   const [clockwise, counterClockwise] = setupRotationFunctions(PLAYER_ROTATION_SPEED)
@@ -16,7 +18,7 @@ export function setupInterface(gameState) {
     rotateCounterclockwise: motor(gameState.objectList, counterClockwise),
     accelerate: motor(gameState.objectList, mapper(conditional(isPlayer, playerThrust))),
     reset: () => resetGameState(gameState),
-    pause: motor(gameState.paused, paused => !paused),
+    pause: motor(gameState.paused, compose(pauseSound, paused => !paused)),
     jettison: motor(gameState.objectList, dropCargo(gameState.ore))
   }
   return humanInterface

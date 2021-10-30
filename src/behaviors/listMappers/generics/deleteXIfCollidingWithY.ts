@@ -1,15 +1,6 @@
-import and from "../../../hof/and"
-import { conditional } from "../../../hof/conditional"
-import { isType, hasCollidedWith } from "../../../hof/conditions"
-import mapper from "../../../hof/mapper"
+import { partial } from "../../../hof/partial"
 import flagForDeletion from "../../objectMappers/flagForDeletion"
+import doXIfYCollidingWithZ from "./doXIfYCollidingWithZ"
 
 
-export default (x: ObjectType, y: ObjectType) => mapper(
-  conditional(
-    and(
-      isType(x),
-      hasCollidedWith(y)
-    ),
-    flagForDeletion
-  ))
+export default partial(doXIfYCollidingWithZ, flagForDeletion)
