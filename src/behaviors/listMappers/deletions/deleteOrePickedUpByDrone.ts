@@ -5,4 +5,4 @@ import doXIfYCollidingWithZ from "../generics/doXIfYCollidingWithZ"
 
 const deleteWithSound = compose(cargoPickupSound, flagForDeletion)
 
-export default doXIfYCollidingWithZ(deleteWithSound, ObjectType.Cargo, ObjectType.Drone)
+export default doXIfYCollidingWithZ(deleteWithSound, ObjectType.Ore, ObjectType.Drone)

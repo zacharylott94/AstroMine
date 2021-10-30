@@ -5,7 +5,9 @@ import constrainThingsWIthClones from "../listMappers/constrainThingsWIthClones"
 import deleteIfCollided from "../listMappers/deletions/deleteIfCollided"
 import deleteIfOutsideOfPlay from "../listMappers/deletions/deleteIfOutsideOfPlay"
 import deleteObjectsOnTimeout from "../listMappers/deletions/deleteObjectsOnTimeout"
+import deleteOrePickedUpByDrone from "../listMappers/deletions/deleteOrePickedUpByDrone"
 import deletePickedUpCargo from "../listMappers/deletions/deletePickedUpCargo"
+import deletePickedUpOre from "../listMappers/deletions/deletePickedUpOre"
 import deletePlayerColliding from "../listMappers/deletions/deletePlayerColliding"
 import despawnOreOnTimeout from "../listMappers/despawnOreOnTimeout"
 import explodeIntoOre from "../listMappers/explodeIntoOre"
@@ -37,10 +39,12 @@ export const updateObjectList = [
   deleteIfOutsideOfPlay,
   deletePickedUpCargo,
   deleteObjectsOnTimeout,
+  deletePickedUpOre,
+  deleteOrePickedUpByDrone,
   despawnOreOnTimeout,
   explodeIntoOre,
   resetAllAccelerations,
   grantClonesOnTrigger,
-].reduce(compose)
+].reduce(compose) as Endofunctor<GameObject[]>
 
 

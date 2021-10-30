@@ -19,7 +19,7 @@ const asteroidShatterList = [
   "asteroid_shatter3.wav",
 ]
 
-const playSound = soundURI => arg => {
+const playSound = soundURI => (arg?) => {
   new Audio(sfxPrefix + soundURI).play()
   return arg
 }
@@ -29,9 +29,18 @@ const playRandomSound = soundURIList => arg => {
   return arg
 }
 
+const soundWrapper = soundURI => func => (...args) => {
+  playSound(soundURI)()
+  return func(...args)
+}
+
 
 export const playerShootSound = playRandomSound(shootList)
 export const asteroidHitSound = playRandomSound(asteroidHitList)
 export const asteroidShatterSound = playRandomSound(asteroidShatterList)
 export const playerDeathSound = playSound("player_kill.wav")
 export const pauseSound = playSound("pause.wav")
+export const droneSpawnSoundWrapper = soundWrapper("drone_spawn.wav")
+export const orePickupSound = playSound("ore_pickup.wav")
+export const jettisonSound = playSound("jettison.wav")
+export const cargoPickupSound = playSound("drone_pickup.wav")

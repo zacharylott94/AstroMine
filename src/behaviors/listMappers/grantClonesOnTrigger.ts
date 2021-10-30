@@ -7,7 +7,7 @@ import not from "../../hof/not"
 import grantClones from "../objectMappers/grantClones"
 
 
-export default mapper(
+export default mapper<any, any>(
   conditional(and(
     hasCollidedWith(ObjectType.CloneTrigger),
     compose(hasClones, not)
