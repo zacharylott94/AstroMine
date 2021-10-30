@@ -10,6 +10,7 @@ import droneSpawner from "./engine/droneSpawner"
 import { initGameState } from "./engine/global"
 import { setupInterface } from "./engine/humanInterface"
 import Controller from "./engine/keyboardController"
+import { thrustSoundFunctions } from "./engine/sound"
 import array from "./libraries/array"
 
 
@@ -37,6 +38,9 @@ const physicsLoop = () => {
   if (Controller.isButtonPushed("o")) humanInterface.reset()
   if (GameState.paused()) return
 
+  if (!Controller.isButtonHeld("W")) thrustSoundFunctions.pause()
+  if (!Controller.isButtonHeld("a")) thrustSoundFunctions.pause()
+  if (!Controller.isButtonHeld("d")) thrustSoundFunctions.pause()
   if (Controller.isButtonHeld("w")) humanInterface.accelerate()
   if (Controller.isButtonHeld("a")) humanInterface.rotateCounterclockwise()
   if (Controller.isButtonHeld("d")) humanInterface.rotateClockwise()

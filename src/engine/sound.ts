@@ -34,6 +34,15 @@ const soundWrapper = soundURI => func => (...args) => {
   return func(...args)
 }
 
+const createPlayPauseFunctions = soundURI => {
+  const sound = new Audio(sfxPrefix + soundURI)
+  sound.loop = true
+  return {
+    play: () => sound.play(),
+    pause: () => sound.pause()
+  }
+}
+
 
 export const playerShootSound = playRandomSound(shootList)
 export const asteroidHitSound = playRandomSound(asteroidHitList)
@@ -44,3 +53,5 @@ export const droneSpawnSoundWrapper = soundWrapper("drone_spawn.wav")
 export const orePickupSound = playSound("ore_pickup.wav")
 export const jettisonSound = playSound("jettison.wav")
 export const cargoPickupSound = playSound("drone_pickup.wav")
+export const thrustSoundFunctions = createPlayPauseFunctions("thrust.wav")
+export const resetSound = playSound("restart.wav")

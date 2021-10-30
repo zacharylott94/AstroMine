@@ -118,7 +118,7 @@ const playerDeathParticleGenerator = timer => player => generateParticleList({
   angle: 0,
   spread: 360,
   get number() { return randomInteger(40, 30) },
-  get lifetime() { return randomInteger(520, 400) },
+  get lifetime() { return randomInteger(210, 180) },
   timer,
   acceleration: zeroAcceleration,
   type: ParticleType.Dot
