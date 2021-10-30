@@ -1,3 +1,6 @@
+### Note: This project has been suspended indefinitely.
+I think this project is in a complete enough state to stop it where it is. I'd like to move onto other projects instead of giving this one the polish it needs.
+
 # To Build
 
 1. Download packages with `npm install`
