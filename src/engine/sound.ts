@@ -1,6 +1,6 @@
 import { randomChoice } from "../libraries/random"
 
-const sfxPrefix = "/asteroids/src/sfx/"
+const sfxPrefix = "/AstroMine/src/sfx/"
 
 const shootList = [
   "shoot.wav",
