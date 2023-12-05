@@ -3,7 +3,7 @@ I think this project is in a complete enough state to stop it where it is. I'd l
 
 # Play the live version here
 
-https://zacharylott94.github.io/asteroids/
+https://zacharylott94.github.io/AstroMine/
 
 # To Build
 
